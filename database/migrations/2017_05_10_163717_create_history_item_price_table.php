@@ -13,11 +13,11 @@ class CreateHistoryItemPriceTable extends Migration
     public function up()
     {
         Schema::create('history_item_price', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('item_id')->unsignet()->index();
-            $table->integer('item_id')->references('id')->on('items');
+            $table->increments('id');
+            $table->bigInteger('item_id')->unsigned()->index();
+            $table->foreign('item_id')->references('id')->on('items');
             $table->float('price');
-
+            $table->timestamps();
         });
     }
 

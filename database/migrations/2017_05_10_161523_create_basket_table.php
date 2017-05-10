@@ -13,10 +13,10 @@ class CreateBasketTable extends Migration
     public function up()
     {
         Schema::create('basket', function (Blueprint $table) {
-            $table->integer('user_id')->unsignet()->index();
-            $table->integer('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('item_id')->unsignet()->index();
-            $table->integer('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('item_id')->unsigned()->index();
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->integer('counts');
             $table->timestamps();
         });

@@ -21,10 +21,10 @@ class CreateCarItemTable extends Migration
     public function up()
     {
         Schema::create('car_item', function (Blueprint $table) {
-            $table->integer('car_id')->unsignet()->index();
-            $table->integer('car_id')->references('id')->on('cars')->onDelete('cascade');
-            $table->integer('item_id')->unsignet()->index();
-            $table->integer('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->bigInteger('car_id')->unsigned()->index();
+            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
+            $table->bigInteger('item_id')->unsigned()->index();
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 

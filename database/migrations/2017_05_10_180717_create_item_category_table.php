@@ -3,16 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryItemTable extends Migration
+class CreateItemCategoryTable extends Migration
 {
-
-    /**
-     * Disable created_at and updated_at columns.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
     /**
      * Run the migrations.
      *
@@ -20,11 +12,11 @@ class CreateCategoryItemTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_item', function (Blueprint $table) {
+        Schema::create('item_category', function (Blueprint $table) {
+            $table->bigInteger('item_id')->unsigned()->index();
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->integer('category_id')->unsigned()->index();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->integer('item_id')->unsigned()->index();
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 
@@ -35,6 +27,6 @@ class CreateCategoryItemTable extends Migration
      */
     public function down()
     {
-        Schema::drop('category_item');
+        Schema::drop('item_category');
     }
 }

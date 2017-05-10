@@ -13,8 +13,8 @@ class CreateAboutUsersTable extends Migration
     public function up()
     {
         Schema::create('about_user', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('first_name');
             $table->string('second_name');
             $table->integer('phone_number');
@@ -22,8 +22,6 @@ class CreateAboutUsersTable extends Migration
             $table->string('street');
             $table->string('house_number');
             $table->string('flat_number')->nullable();
-            $table->integer('car_id')->unsigned()->index()->nullable();
-            $table->integer('car_id')->references('id')->on('cars')->onDelete('cascade');
             $table->timestamps();
         });
     }
