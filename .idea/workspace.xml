@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b9239f0-5fe2-43c3-a578-13f5860af69d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_10_155142_create_items_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_10_155142_create_items_table.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,10 +77,10 @@
         <entry file="file://$PROJECT_DIR$/database/migrations/2017_05_10_155142_create_items_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="21" column="47" lean-forward="false" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+              <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
               <folding>
                 <element signature="e#7#48#0#PHP" expanded="true" />
-                <marker date="1494446478234" expanded="true" signature="686:726" ph="ALTER TABLE items... " />
+                <marker date="1494446570538" expanded="true" signature="685:725" ph="ALTER TABLE items... " />
               </folding>
             </state>
           </provider>
@@ -364,15 +363,15 @@
       <workItem from="1494407254791" duration="9823000" />
       <workItem from="1494428364045" duration="9661000" />
       <workItem from="1494438375623" duration="7215000" />
-      <workItem from="1494446462939" duration="26000" />
+      <workItem from="1494446462939" duration="106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28014000" />
+    <option name="totallyTimeSpent" value="28094000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="516" y="0" width="850" height="728" extended-state="1" />
+    <frame x="516" y="0" width="850" height="728" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -731,10 +730,10 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_05_10_155142_create_items_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="21" column="47" lean-forward="false" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
           <folding>
             <element signature="e#7#48#0#PHP" expanded="true" />
-            <marker date="1494446478234" expanded="true" signature="686:726" ph="ALTER TABLE items... " />
+            <marker date="1494446570538" expanded="true" signature="685:725" ph="ALTER TABLE items... " />
           </folding>
         </state>
       </provider>
