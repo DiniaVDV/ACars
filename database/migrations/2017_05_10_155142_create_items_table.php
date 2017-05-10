@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateUsersTable extends Migration
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email', 100)->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('title');
+            $table->text('description');
+            $table->float('price');
+            $table->integer('amount');
+            $table->string('latin_url');
             $table->timestamps();
         });
-
-        DB::update("ALTER TABLE users AUTO_INCREMENT = 1000");
+        DB::update("ALTER TABLE items AUTO_INCREMENT = 10000");
     }
 
     /**
@@ -32,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::dropIfExists('items');
     }
 }

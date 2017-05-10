@@ -20,13 +20,11 @@ class CreateCategoryItemTable extends Migration
      */
     public function up()
     {
-        Schema::create('category__item', function (Blueprint $table) {
+        Schema::create('category_item', function (Blueprint $table) {
             $table->integer('category_id')->unsigned()->index();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('item_id')->unsigned()->index();
             $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
-            $table->timestamps();
-
         });
     }
 
@@ -37,6 +35,6 @@ class CreateCategoryItemTable extends Migration
      */
     public function down()
     {
-        Schema::drop('category__item');
+        Schema::drop('category_item');
     }
 }
