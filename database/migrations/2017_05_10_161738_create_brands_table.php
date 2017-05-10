@@ -15,7 +15,8 @@ class CreateBrandsTable extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('name');
+            $table->string('name');
+            $table->string('logo');
             $table->timestamps();
         });
         DB::update("ALTER TABLE brands AUTO_INCREMENT = 100");

@@ -19,6 +19,10 @@ class CreateOdersTable extends Migration
             $table->bigInteger('item_id')->unsigned()->index();
             $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->float('price');
+            $table->string('type_of_delivery');
+            $table->string('type_of_payment');
+            $table->string('status');
+            $table->string('comments');
             $table->timestamps();
         });
         DB::update("ALTER TABLE orders AUTO_INCREMENT = 10000");

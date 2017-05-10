@@ -20,6 +20,8 @@ class CreateCategoriesTable extends Migration
             $table->boolean('has_child');
             $table->integer('parent_id')->nullable();
             $table->integer('parent_id_2')->nullable();
+            $table->string('description')->nullable();
+            $table->string('SEO')->nullable();
             $table->timestamps();
         });//
     }

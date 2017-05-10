@@ -19,6 +19,7 @@ class CreateItemsTable extends Migration
             $table->text('description');
             $table->float('price');
             $table->integer('amount');
+            $table->string('SEO')->nullable();
             $table->string('latin_url');
             $table->timestamps();
         });
