@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+		
+        View::share('navbar', \App\Models\Navbar::all());
+		View::share('cars', \App\Models\Car::all());
+        // View::share('categories', \App\Models\Category::all());
+        View::share('categories', \App\Http\Controllers\CategoriesController::listOfCategories());
     }
 
     /**

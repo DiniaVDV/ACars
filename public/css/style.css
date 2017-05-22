@@ -1,0 +1,282 @@
+﻿/*@font-face {
+    font-family: 'Rock Salt'; /* Имя шрифта */
+   /* src: url(/fonts/RockSalt.ttf); *//* Путь к файлу со шрифтом */
+/*}*/
+/*
+@import url('https://fonts.googleapis.com/css?family=Quattrocento');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Outline');
+@import url('https://fonts.googleapis.com/css?family=Finger+Paint');
+@import url('https://fonts.googleapis.com/css?family=Audiowide');*/
+body{
+    background: #26292e;
+}
+
+
+header{
+    background: #050908;
+    padding: auto 5px;
+    color: #e3ebee;
+    font-family: 'Audiowide', cursive;
+    border-radius:5px;
+}
+
+.logo{
+    margin: 35px 5px;
+}
+
+nav{
+    background: #869290;
+    padding: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    /*font-family: 'Quattrocento', serif;*/
+    font-family: 'Finger Paint', cursive;
+    margin: 15px -15px 15px -15px;
+}
+
+#buttonMenu{
+    border: 1px solid #e3ebee;
+    background: #26292e;
+}
+
+.dropdown-menu{
+    background: #e3ebee;
+    color: #869290;
+}
+
+.nav li a{
+    color: #9e0b0f;
+}
+
+.dropdown-menu li a{
+    color: #9e0b0f;
+}
+.smenu{
+    color: #e3ebee;
+}
+
+.content{
+    background: #869290;
+    color: #e3ebee;
+    border-radius:5px;
+	padding: 5px 10px 5px 10px;
+	margin-right: 0px;
+
+}
+
+.onRed{
+
+	color:#869290;
+}
+
+.onRed:visited, 
+.onRed:hover{
+	color:#869290;
+}
+
+.exit:visited,
+.exit:hover
+{
+	color:#e3ebee;
+}
+
+.leftSidebar{
+    color: #e3ebee;
+    background: #9e0b0f;
+    border-radius:5px;
+	margin: 0px -10px -10px -15px ;
+	padding: 5px 5px 5px 5px;
+	
+}
+
+.leftSidebar > .input-sm{
+	color: #9e0b0f;
+	background: #e3ebee;
+}
+
+.list-group {
+    margin-bottom: 0px;
+	color: #e3ebee;
+	background: none;
+
+}
+
+.panel{
+	margin-bottom: 0px;
+	box-shadow: 0px 0px 0px;
+	background:	#9e0b0f;
+	border: 0px;
+	border-radius: 0px;
+}
+
+.panel-heading{
+	padding: 3px ;
+}
+
+.panel-body{
+	padding: 1px;
+	margin-left: 10px;
+}
+
+.itemBasic{
+	margin: 7px -15px 10px 7px ;
+}
+
+.itemBasic > a,
+			a:hover{
+	color: #e3ebee;
+	border-color: #e3ebee;
+	text-decoration: none;
+}
+
+.item{
+	position: relative;
+	bottom: 0px;
+	left: 0px;
+	background: #869290;
+	margin: auto;
+	height: 200px;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+.panel-body > #buy{
+	margin: 2px auto;
+	background: #9e0b0f;
+	position:absolute;
+	bottom: 5px;
+	left: 53%;
+}
+
+.panel-body > #price{
+	position:absolute;
+	bottom: 5px;
+	left: 27%;
+}
+
+.item:hover{
+	border-color: #9e0b0f;
+}
+
+.item > .itemHead{
+	background: #869290;
+	border: transparent;
+	color: #e3ebee;
+}
+
+.itemHead > .title{
+	text-align: center;
+	margin: 5px 0px 5px 0px;
+}
+
+.itemLogo{
+	display: block;
+	margin: 0 auto;
+	width:150px;
+	height:100px;
+}
+
+.auth{
+	margin: 5px;
+	background:	#869290;
+}
+
+.auth > .authHead{
+	background-color:#9e0b0f;
+	border-color:#9e0b0f;
+	color: #e3ebee;
+	border-radius: 3px;
+	
+}
+
+.authButton{
+	background-color:#9e0b0f;
+	color: #e3ebee;
+}
+
+.form-control{
+	background:#9e0b0f;
+    color: #e3ebee;
+}
+
+
+.rightSidebar{
+	color: #e3ebee;
+    background: #9e0b0f;
+    border-radius:5px;
+	margin: 0px -15px -10px -10px ;
+	padding: 5px 5px 5px 5px;
+}
+
+.cab{
+    color: #e3ebee;
+    background: #9e0b0f;
+    border-radius:5px;
+}
+
+.enter{
+	background: #26292e;
+	color: #e3ebee;
+	
+}
+
+label{
+	color: #e3ebee;
+}
+
+.formForEnter{
+	padding: 4px 0px;
+}
+
+select{
+	background: #e3ebee;
+	margin: 10px 0px;
+}
+
+select > option{
+	background: #e3ebee;
+}
+
+.sidebar > select:active{
+	background: #9e0b0f;
+}
+
+select:focus{
+	background: #e3ebee;
+}
+
+.selectMenu{
+	color: #e3ebee;
+}
+#selectCarMenu{
+	list-style-type: none;
+	padding: 0px 10px;
+}
+#window{
+	color: #e3ebee;
+	width: 80%;
+	height: 230px;
+	margin: 50px auto;
+	display: none;
+	background:  #869290;
+	z-index: 200;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 16px;
+}
+#wrap{
+	display: none;
+	opacity: 0.8;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 16px;
+	background-color: rgba(1, 1, 1, 0.725);
+	z-index: 100;
+	overflow: auto;
+}
