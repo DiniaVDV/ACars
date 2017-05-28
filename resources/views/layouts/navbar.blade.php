@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 col-lg-12">	
-			<nav class="navbar hidden-xs">
+			<nav class="navbar">
 				<ul class="nav nav-pills">
 					<?php foreach($navbar as $element):?>
 							<?php if($element['for_reg_users'] == 'true' && $element['for_unreg_users'] == 'true' ):?>
@@ -11,7 +11,7 @@
 										<?php else:?>
 													class="pull-<?=$element['placing']?>"
 										<?php endif;?>>
-											 <a href="<?=$element['alias']?>"> <?=$element['title']?> </a>
+											 <a href="{{asset($element['alias'])}}"> <?=$element['title']?> </a>
 									</li>	
 							<?php elseif(Auth::guest()):
 									if($element['for_unreg_users'] == 'true' && $element['for_reg_users'] == 'false'):?>
@@ -26,10 +26,16 @@
 								<?php endif;?>
 							<?php endif;?>
 					<?php endforeach;?>
+								<li class="pull-right" role="presentation">
+									<a href="{{asset('shopping_cart')}}">
+										<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+										<span class="badge">{{Cart::count()}}</span>
+									</a>
+								</li>
 					<?php if(Auth::user()):?>
 								<li class="dropdown pull-right">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-										{{ Auth::user()->name }} <span class="caret"></span>
+										<i class="fa fa-user" aria-hidden="true"></i>{{ Auth::user()->name }} <span class="caret"></span>
 									</a>	
 									<ul class="dropdown-menu" role="menu">
 									<?php foreach($navbar as $element):
@@ -37,7 +43,8 @@
 														<li><a href="<?=$element['alias']?>"><?=$element['title']?></a></li>
 														
 											<?php endif;
-										  endforeach;?>	
+										  endforeach;?>
+										<li role="separator" class="divider"></li>
 										<li>										  
 											<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выйти</a>
 											<form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
@@ -46,8 +53,8 @@
 										</li>
 									</ul>
 								</li>
-							
 					<?php endif;?>
+				
 				</ul>
 			</nav>
 		</div>

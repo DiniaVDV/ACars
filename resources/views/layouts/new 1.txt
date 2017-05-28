@@ -1,0 +1,1120 @@
+array(4) {
+  ["Амортизация"]=>
+  array(3) {
+    [0]=>
+    object(App\Models\Category)#104 (25) {
+      ["connection":protected]=>
+      string(5) "mysql"
+      ["table":protected]=>
+      NULL
+      ["primaryKey":protected]=>
+      string(2) "id"
+      ["keyType":protected]=>
+      string(3) "int"
+      ["incrementing"]=>
+      bool(true)
+      ["with":protected]=>
+      array(0) {
+      }
+      ["withCount":protected]=>
+      array(0) {
+      }
+      ["perPage":protected]=>
+      int(15)
+      ["exists"]=>
+      bool(true)
+      ["wasRecentlyCreated"]=>
+      bool(false)
+      ["attributes":protected]=>
+      array(10) {
+        ["id"]=>
+        int(1)
+        ["category_name"]=>
+        string(11) "amortizacia"
+        ["title"]=>
+        string(22) "Амортизация"
+        ["has_child"]=>
+        int(1)
+        ["parent_id"]=>
+        NULL
+        ["parent_id_2"]=>
+        NULL
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["original":protected]=>
+      array(10) {
+        ["id"]=>
+        int(1)
+        ["category_name"]=>
+        string(11) "amortizacia"
+        ["title"]=>
+        string(22) "Амортизация"
+        ["has_child"]=>
+        int(1)
+        ["parent_id"]=>
+        NULL
+        ["parent_id_2"]=>
+        NULL
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["casts":protected]=>
+      array(0) {
+      }
+      ["dates":protected]=>
+      array(0) {
+      }
+      ["dateFormat":protected]=>
+      NULL
+      ["appends":protected]=>
+      array(0) {
+      }
+      ["events":protected]=>
+      array(0) {
+      }
+      ["observables":protected]=>
+      array(0) {
+      }
+      ["relations":protected]=>
+      array(0) {
+      }
+      ["touches":protected]=>
+      array(0) {
+      }
+      ["timestamps"]=>
+      bool(true)
+      ["hidden":protected]=>
+      array(0) {
+      }
+      ["visible":protected]=>
+      array(0) {
+      }
+      ["fillable":protected]=>
+      array(0) {
+      }
+      ["guarded":protected]=>
+      array(1) {
+        [0]=>
+        string(1) "*"
+      }
+    }
+    ["Амортизаторы подвески"]=>
+    array(2) {
+      [0]=>
+      object(App\Models\Category)#123 (25) {
+        ["connection":protected]=>
+        string(5) "mysql"
+        ["table":protected]=>
+        NULL
+        ["primaryKey":protected]=>
+        string(2) "id"
+        ["keyType":protected]=>
+        string(3) "int"
+        ["incrementing"]=>
+        bool(true)
+        ["with":protected]=>
+        array(0) {
+        }
+        ["withCount":protected]=>
+        array(0) {
+        }
+        ["perPage":protected]=>
+        int(15)
+        ["exists"]=>
+        bool(true)
+        ["wasRecentlyCreated"]=>
+        bool(false)
+        ["attributes":protected]=>
+        array(10) {
+          ["id"]=>
+          int(5)
+          ["category_name"]=>
+          string(21) "amortizatory_podveski"
+          ["title"]=>
+          string(41) "Амортизаторы подвески"
+          ["has_child"]=>
+          int(1)
+          ["parent_id"]=>
+          int(1)
+          ["parent_id_2"]=>
+          NULL
+          ["description"]=>
+          NULL
+          ["SEO"]=>
+          NULL
+          ["created_at"]=>
+          NULL
+          ["updated_at"]=>
+          NULL
+        }
+        ["original":protected]=>
+        array(10) {
+          ["id"]=>
+          int(5)
+          ["category_name"]=>
+          string(21) "amortizatory_podveski"
+          ["title"]=>
+          string(41) "Амортизаторы подвески"
+          ["has_child"]=>
+          int(1)
+          ["parent_id"]=>
+          int(1)
+          ["parent_id_2"]=>
+          NULL
+          ["description"]=>
+          NULL
+          ["SEO"]=>
+          NULL
+          ["created_at"]=>
+          NULL
+          ["updated_at"]=>
+          NULL
+        }
+        ["casts":protected]=>
+        array(0) {
+        }
+        ["dates":protected]=>
+        array(0) {
+        }
+        ["dateFormat":protected]=>
+        NULL
+        ["appends":protected]=>
+        array(0) {
+        }
+        ["events":protected]=>
+        array(0) {
+        }
+        ["observables":protected]=>
+        array(0) {
+        }
+        ["relations":protected]=>
+        array(0) {
+        }
+        ["touches":protected]=>
+        array(0) {
+        }
+        ["timestamps"]=>
+        bool(true)
+        ["hidden":protected]=>
+        array(0) {
+        }
+        ["visible":protected]=>
+        array(0) {
+        }
+        ["fillable":protected]=>
+        array(0) {
+        }
+        ["guarded":protected]=>
+        array(1) {
+          [0]=>
+          string(1) "*"
+        }
+      }
+      ["Защитные комплекты амортизатора"]=>
+      object(App\Models\Category)#124 (25) {
+        ["connection":protected]=>
+        string(5) "mysql"
+        ["table":protected]=>
+        NULL
+        ["primaryKey":protected]=>
+        string(2) "id"
+        ["keyType":protected]=>
+        string(3) "int"
+        ["incrementing"]=>
+        bool(true)
+        ["with":protected]=>
+        array(0) {
+        }
+        ["withCount":protected]=>
+        array(0) {
+        }
+        ["perPage":protected]=>
+        int(15)
+        ["exists"]=>
+        bool(true)
+        ["wasRecentlyCreated"]=>
+        bool(false)
+        ["attributes":protected]=>
+        array(10) {
+          ["id"]=>
+          int(6)
+          ["category_name"]=>
+          string(33) "zaschitnye_komplecty_amortizatora"
+          ["title"]=>
+          string(60) "Защитные комплекты амортизатора"
+          ["has_child"]=>
+          int(0)
+          ["parent_id"]=>
+          int(5)
+          ["parent_id_2"]=>
+          NULL
+          ["description"]=>
+          NULL
+          ["SEO"]=>
+          NULL
+          ["created_at"]=>
+          NULL
+          ["updated_at"]=>
+          NULL
+        }
+        ["original":protected]=>
+        array(10) {
+          ["id"]=>
+          int(6)
+          ["category_name"]=>
+          string(33) "zaschitnye_komplecty_amortizatora"
+          ["title"]=>
+          string(60) "Защитные комплекты амортизатора"
+          ["has_child"]=>
+          int(0)
+          ["parent_id"]=>
+          int(5)
+          ["parent_id_2"]=>
+          NULL
+          ["description"]=>
+          NULL
+          ["SEO"]=>
+          NULL
+          ["created_at"]=>
+          NULL
+          ["updated_at"]=>
+          NULL
+        }
+        ["casts":protected]=>
+        array(0) {
+        }
+        ["dates":protected]=>
+        array(0) {
+        }
+        ["dateFormat":protected]=>
+        NULL
+        ["appends":protected]=>
+        array(0) {
+        }
+        ["events":protected]=>
+        array(0) {
+        }
+        ["observables":protected]=>
+        array(0) {
+        }
+        ["relations":protected]=>
+        array(0) {
+        }
+        ["touches":protected]=>
+        array(0) {
+        }
+        ["timestamps"]=>
+        bool(true)
+        ["hidden":protected]=>
+        array(0) {
+        }
+        ["visible":protected]=>
+        array(0) {
+        }
+        ["fillable":protected]=>
+        array(0) {
+        }
+        ["guarded":protected]=>
+        array(1) {
+          [0]=>
+          string(1) "*"
+        }
+      }
+    }
+    ["ШРУС"]=>
+    object(App\Models\Category)#127 (25) {
+      ["connection":protected]=>
+      string(5) "mysql"
+      ["table":protected]=>
+      NULL
+      ["primaryKey":protected]=>
+      string(2) "id"
+      ["keyType":protected]=>
+      string(3) "int"
+      ["incrementing"]=>
+      bool(true)
+      ["with":protected]=>
+      array(0) {
+      }
+      ["withCount":protected]=>
+      array(0) {
+      }
+      ["perPage":protected]=>
+      int(15)
+      ["exists"]=>
+      bool(true)
+      ["wasRecentlyCreated"]=>
+      bool(false)
+      ["attributes":protected]=>
+      array(10) {
+        ["id"]=>
+        int(9)
+        ["category_name"]=>
+        string(5) "shrus"
+        ["title"]=>
+        string(8) "ШРУС"
+        ["has_child"]=>
+        int(0)
+        ["parent_id"]=>
+        int(3)
+        ["parent_id_2"]=>
+        int(1)
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["original":protected]=>
+      array(10) {
+        ["id"]=>
+        int(9)
+        ["category_name"]=>
+        string(5) "shrus"
+        ["title"]=>
+        string(8) "ШРУС"
+        ["has_child"]=>
+        int(0)
+        ["parent_id"]=>
+        int(3)
+        ["parent_id_2"]=>
+        int(1)
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["casts":protected]=>
+      array(0) {
+      }
+      ["dates":protected]=>
+      array(0) {
+      }
+      ["dateFormat":protected]=>
+      NULL
+      ["appends":protected]=>
+      array(0) {
+      }
+      ["events":protected]=>
+      array(0) {
+      }
+      ["observables":protected]=>
+      array(0) {
+      }
+      ["relations":protected]=>
+      array(0) {
+      }
+      ["touches":protected]=>
+      array(0) {
+      }
+      ["timestamps"]=>
+      bool(true)
+      ["hidden":protected]=>
+      array(0) {
+      }
+      ["visible":protected]=>
+      array(0) {
+      }
+      ["fillable":protected]=>
+      array(0) {
+      }
+      ["guarded":protected]=>
+      array(1) {
+        [0]=>
+        string(1) "*"
+      }
+    }
+  }
+  ["Выхлопная система"]=>
+  array(2) {
+    [0]=>
+    object(App\Models\Category)#105 (25) {
+      ["connection":protected]=>
+      string(5) "mysql"
+      ["table":protected]=>
+      NULL
+      ["primaryKey":protected]=>
+      string(2) "id"
+      ["keyType":protected]=>
+      string(3) "int"
+      ["incrementing"]=>
+      bool(true)
+      ["with":protected]=>
+      array(0) {
+      }
+      ["withCount":protected]=>
+      array(0) {
+      }
+      ["perPage":protected]=>
+      int(15)
+      ["exists"]=>
+      bool(true)
+      ["wasRecentlyCreated"]=>
+      bool(false)
+      ["attributes":protected]=>
+      array(10) {
+        ["id"]=>
+        int(2)
+        ["category_name"]=>
+        string(18) "vyhlopnaya_systema"
+        ["title"]=>
+        string(33) "Выхлопная система"
+        ["has_child"]=>
+        int(1)
+        ["parent_id"]=>
+        NULL
+        ["parent_id_2"]=>
+        NULL
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["original":protected]=>
+      array(10) {
+        ["id"]=>
+        int(2)
+        ["category_name"]=>
+        string(18) "vyhlopnaya_systema"
+        ["title"]=>
+        string(33) "Выхлопная система"
+        ["has_child"]=>
+        int(1)
+        ["parent_id"]=>
+        NULL
+        ["parent_id_2"]=>
+        NULL
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["casts":protected]=>
+      array(0) {
+      }
+      ["dates":protected]=>
+      array(0) {
+      }
+      ["dateFormat":protected]=>
+      NULL
+      ["appends":protected]=>
+      array(0) {
+      }
+      ["events":protected]=>
+      array(0) {
+      }
+      ["observables":protected]=>
+      array(0) {
+      }
+      ["relations":protected]=>
+      array(0) {
+      }
+      ["touches":protected]=>
+      array(0) {
+      }
+      ["timestamps"]=>
+      bool(true)
+      ["hidden":protected]=>
+      array(0) {
+      }
+      ["visible":protected]=>
+      array(0) {
+      }
+      ["fillable":protected]=>
+      array(0) {
+      }
+      ["guarded":protected]=>
+      array(1) {
+        [0]=>
+        string(1) "*"
+      }
+    }
+    ["Глушитель"]=>
+    array(2) {
+      [0]=>
+      object(App\Models\Category)#125 (25) {
+        ["connection":protected]=>
+        string(5) "mysql"
+        ["table":protected]=>
+        NULL
+        ["primaryKey":protected]=>
+        string(2) "id"
+        ["keyType":protected]=>
+        string(3) "int"
+        ["incrementing"]=>
+        bool(true)
+        ["with":protected]=>
+        array(0) {
+        }
+        ["withCount":protected]=>
+        array(0) {
+        }
+        ["perPage":protected]=>
+        int(15)
+        ["exists"]=>
+        bool(true)
+        ["wasRecentlyCreated"]=>
+        bool(false)
+        ["attributes":protected]=>
+        array(10) {
+          ["id"]=>
+          int(7)
+          ["category_name"]=>
+          string(9) "glushytel"
+          ["title"]=>
+          string(18) "Глушитель"
+          ["has_child"]=>
+          int(1)
+          ["parent_id"]=>
+          int(2)
+          ["parent_id_2"]=>
+          NULL
+          ["description"]=>
+          NULL
+          ["SEO"]=>
+          NULL
+          ["created_at"]=>
+          NULL
+          ["updated_at"]=>
+          NULL
+        }
+        ["original":protected]=>
+        array(10) {
+          ["id"]=>
+          int(7)
+          ["category_name"]=>
+          string(9) "glushytel"
+          ["title"]=>
+          string(18) "Глушитель"
+          ["has_child"]=>
+          int(1)
+          ["parent_id"]=>
+          int(2)
+          ["parent_id_2"]=>
+          NULL
+          ["description"]=>
+          NULL
+          ["SEO"]=>
+          NULL
+          ["created_at"]=>
+          NULL
+          ["updated_at"]=>
+          NULL
+        }
+        ["casts":protected]=>
+        array(0) {
+        }
+        ["dates":protected]=>
+        array(0) {
+        }
+        ["dateFormat":protected]=>
+        NULL
+        ["appends":protected]=>
+        array(0) {
+        }
+        ["events":protected]=>
+        array(0) {
+        }
+        ["observables":protected]=>
+        array(0) {
+        }
+        ["relations":protected]=>
+        array(0) {
+        }
+        ["touches":protected]=>
+        array(0) {
+        }
+        ["timestamps"]=>
+        bool(true)
+        ["hidden":protected]=>
+        array(0) {
+        }
+        ["visible":protected]=>
+        array(0) {
+        }
+        ["fillable":protected]=>
+        array(0) {
+        }
+        ["guarded":protected]=>
+        array(1) {
+          [0]=>
+          string(1) "*"
+        }
+      }
+      ["Воздушный фильтр двигателя"]=>
+      object(App\Models\Category)#126 (25) {
+        ["connection":protected]=>
+        string(5) "mysql"
+        ["table":protected]=>
+        NULL
+        ["primaryKey":protected]=>
+        string(2) "id"
+        ["keyType":protected]=>
+        string(3) "int"
+        ["incrementing"]=>
+        bool(true)
+        ["with":protected]=>
+        array(0) {
+        }
+        ["withCount":protected]=>
+        array(0) {
+        }
+        ["perPage":protected]=>
+        int(15)
+        ["exists"]=>
+        bool(true)
+        ["wasRecentlyCreated"]=>
+        bool(false)
+        ["attributes":protected]=>
+        array(10) {
+          ["id"]=>
+          int(8)
+          ["category_name"]=>
+          string(28) "vozdushnyy_filter_dvigatelya"
+          ["title"]=>
+          string(50) "Воздушный фильтр двигателя"
+          ["has_child"]=>
+          int(0)
+          ["parent_id"]=>
+          int(7)
+          ["parent_id_2"]=>
+          NULL
+          ["description"]=>
+          NULL
+          ["SEO"]=>
+          NULL
+          ["created_at"]=>
+          NULL
+          ["updated_at"]=>
+          NULL
+        }
+        ["original":protected]=>
+        array(10) {
+          ["id"]=>
+          int(8)
+          ["category_name"]=>
+          string(28) "vozdushnyy_filter_dvigatelya"
+          ["title"]=>
+          string(50) "Воздушный фильтр двигателя"
+          ["has_child"]=>
+          int(0)
+          ["parent_id"]=>
+          int(7)
+          ["parent_id_2"]=>
+          NULL
+          ["description"]=>
+          NULL
+          ["SEO"]=>
+          NULL
+          ["created_at"]=>
+          NULL
+          ["updated_at"]=>
+          NULL
+        }
+        ["casts":protected]=>
+        array(0) {
+        }
+        ["dates":protected]=>
+        array(0) {
+        }
+        ["dateFormat":protected]=>
+        NULL
+        ["appends":protected]=>
+        array(0) {
+        }
+        ["events":protected]=>
+        array(0) {
+        }
+        ["observables":protected]=>
+        array(0) {
+        }
+        ["relations":protected]=>
+        array(0) {
+        }
+        ["touches":protected]=>
+        array(0) {
+        }
+        ["timestamps"]=>
+        bool(true)
+        ["hidden":protected]=>
+        array(0) {
+        }
+        ["visible":protected]=>
+        array(0) {
+        }
+        ["fillable":protected]=>
+        array(0) {
+        }
+        ["guarded":protected]=>
+        array(1) {
+          [0]=>
+          string(1) "*"
+        }
+      }
+    }
+  }
+  ["Двигатель"]=>
+  array(2) {
+    [0]=>
+    object(App\Models\Category)#99 (25) {
+      ["connection":protected]=>
+      string(5) "mysql"
+      ["table":protected]=>
+      NULL
+      ["primaryKey":protected]=>
+      string(2) "id"
+      ["keyType":protected]=>
+      string(3) "int"
+      ["incrementing"]=>
+      bool(true)
+      ["with":protected]=>
+      array(0) {
+      }
+      ["withCount":protected]=>
+      array(0) {
+      }
+      ["perPage":protected]=>
+      int(15)
+      ["exists"]=>
+      bool(true)
+      ["wasRecentlyCreated"]=>
+      bool(false)
+      ["attributes":protected]=>
+      array(10) {
+        ["id"]=>
+        int(3)
+        ["category_name"]=>
+        string(8) "dvigatel"
+        ["title"]=>
+        string(18) "Двигатель"
+        ["has_child"]=>
+        int(1)
+        ["parent_id"]=>
+        NULL
+        ["parent_id_2"]=>
+        NULL
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["original":protected]=>
+      array(10) {
+        ["id"]=>
+        int(3)
+        ["category_name"]=>
+        string(8) "dvigatel"
+        ["title"]=>
+        string(18) "Двигатель"
+        ["has_child"]=>
+        int(1)
+        ["parent_id"]=>
+        NULL
+        ["parent_id_2"]=>
+        NULL
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["casts":protected]=>
+      array(0) {
+      }
+      ["dates":protected]=>
+      array(0) {
+      }
+      ["dateFormat":protected]=>
+      NULL
+      ["appends":protected]=>
+      array(0) {
+      }
+      ["events":protected]=>
+      array(0) {
+      }
+      ["observables":protected]=>
+      array(0) {
+      }
+      ["relations":protected]=>
+      array(0) {
+      }
+      ["touches":protected]=>
+      array(0) {
+      }
+      ["timestamps"]=>
+      bool(true)
+      ["hidden":protected]=>
+      array(0) {
+      }
+      ["visible":protected]=>
+      array(0) {
+      }
+      ["fillable":protected]=>
+      array(0) {
+      }
+      ["guarded":protected]=>
+      array(1) {
+        [0]=>
+        string(1) "*"
+      }
+    }
+    ["ШРУС"]=>
+    object(App\Models\Category)#127 (25) {
+      ["connection":protected]=>
+      string(5) "mysql"
+      ["table":protected]=>
+      NULL
+      ["primaryKey":protected]=>
+      string(2) "id"
+      ["keyType":protected]=>
+      string(3) "int"
+      ["incrementing"]=>
+      bool(true)
+      ["with":protected]=>
+      array(0) {
+      }
+      ["withCount":protected]=>
+      array(0) {
+      }
+      ["perPage":protected]=>
+      int(15)
+      ["exists"]=>
+      bool(true)
+      ["wasRecentlyCreated"]=>
+      bool(false)
+      ["attributes":protected]=>
+      array(10) {
+        ["id"]=>
+        int(9)
+        ["category_name"]=>
+        string(5) "shrus"
+        ["title"]=>
+        string(8) "ШРУС"
+        ["has_child"]=>
+        int(0)
+        ["parent_id"]=>
+        int(3)
+        ["parent_id_2"]=>
+        int(1)
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["original":protected]=>
+      array(10) {
+        ["id"]=>
+        int(9)
+        ["category_name"]=>
+        string(5) "shrus"
+        ["title"]=>
+        string(8) "ШРУС"
+        ["has_child"]=>
+        int(0)
+        ["parent_id"]=>
+        int(3)
+        ["parent_id_2"]=>
+        int(1)
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["casts":protected]=>
+      array(0) {
+      }
+      ["dates":protected]=>
+      array(0) {
+      }
+      ["dateFormat":protected]=>
+      NULL
+      ["appends":protected]=>
+      array(0) {
+      }
+      ["events":protected]=>
+      array(0) {
+      }
+      ["observables":protected]=>
+      array(0) {
+      }
+      ["relations":protected]=>
+      array(0) {
+      }
+      ["touches":protected]=>
+      array(0) {
+      }
+      ["timestamps"]=>
+      bool(true)
+      ["hidden":protected]=>
+      array(0) {
+      }
+      ["visible":protected]=>
+      array(0) {
+      }
+      ["fillable":protected]=>
+      array(0) {
+      }
+      ["guarded":protected]=>
+      array(1) {
+        [0]=>
+        string(1) "*"
+      }
+    }
+  }
+  ["Зажигание, накаливание"]=>
+  array(1) {
+    [0]=>
+    object(App\Models\Category)#122 (25) {
+      ["connection":protected]=>
+      string(5) "mysql"
+      ["table":protected]=>
+      NULL
+      ["primaryKey":protected]=>
+      string(2) "id"
+      ["keyType":protected]=>
+      string(3) "int"
+      ["incrementing"]=>
+      bool(true)
+      ["with":protected]=>
+      array(0) {
+      }
+      ["withCount":protected]=>
+      array(0) {
+      }
+      ["perPage":protected]=>
+      int(15)
+      ["exists"]=>
+      bool(true)
+      ["wasRecentlyCreated"]=>
+      bool(false)
+      ["attributes":protected]=>
+      array(10) {
+        ["id"]=>
+        int(4)
+        ["category_name"]=>
+        string(22) "zaghiganie_nakalivanie"
+        ["title"]=>
+        string(42) "Зажигание, накаливание"
+        ["has_child"]=>
+        int(1)
+        ["parent_id"]=>
+        NULL
+        ["parent_id_2"]=>
+        NULL
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["original":protected]=>
+      array(10) {
+        ["id"]=>
+        int(4)
+        ["category_name"]=>
+        string(22) "zaghiganie_nakalivanie"
+        ["title"]=>
+        string(42) "Зажигание, накаливание"
+        ["has_child"]=>
+        int(1)
+        ["parent_id"]=>
+        NULL
+        ["parent_id_2"]=>
+        NULL
+        ["description"]=>
+        NULL
+        ["SEO"]=>
+        NULL
+        ["created_at"]=>
+        NULL
+        ["updated_at"]=>
+        NULL
+      }
+      ["casts":protected]=>
+      array(0) {
+      }
+      ["dates":protected]=>
+      array(0) {
+      }
+      ["dateFormat":protected]=>
+      NULL
+      ["appends":protected]=>
+      array(0) {
+      }
+      ["events":protected]=>
+      array(0) {
+      }
+      ["observables":protected]=>
+      array(0) {
+      }
+      ["relations":protected]=>
+      array(0) {
+      }
+      ["touches":protected]=>
+      array(0) {
+      }
+      ["timestamps"]=>
+      bool(true)
+      ["hidden":protected]=>
+      array(0) {
+      }
+      ["visible":protected]=>
+      array(0) {
+      }
+      ["fillable":protected]=>
+      array(0) {
+      }
+      ["guarded":protected]=>
+      array(1) {
+        [0]=>
+        string(1) "*"
+      }
+    }
+  }
+}

@@ -13,17 +13,10 @@ use App\Http\Requests;
 class PagesController extends Controller
 {
 	
-    public function index($car_id = 1)
-    {	
-		$items = Car::find($car_id)->items()->get();
-		foreach($items as $item){
+    public function index()
+    {
 
-			// echo ($item['title']) . " - ";
-			$brands[$item['id']] = Item::find($item['id'])->brand()->get();
-			// echo($brands[$item['id']][0]["name"]);
-		}
-
-        return view('pages.listOfItems', compact('brands', 'items')); 
+        return view('pages.main');
     }
 	
 	
@@ -42,6 +35,17 @@ class PagesController extends Controller
     {
 		
         return view('pages.contacts');
+    }
+
+    public function listOfItems(Request $request)
+    {
+		$alias = $request->input()['alias'];	
+		
+		$items = Car::find($car_id)->items()->get();
+		foreach($items as $item){
+			$brands[$item['id']] = Item::find($item['id'])->brand()->get();
+		}
+        return view('pages.listOfItems', compact('brands', 'items'));
     }
 
 }

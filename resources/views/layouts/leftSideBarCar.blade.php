@@ -1,26 +1,21 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-2 col-md-2 col-lg-2 hidden-xs">
+		<div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 ">
 			<div class="leftSidebar">
 				<h4>Подбор по модели авто</h4>
-				<select class="form-control input-sm" style="border-radius: 5px;" id="brand">
-					
+				<p>Выберите марку:</p>
+				<select class="form-control input-sm" id="brands" onchange="getYears(this)">
 				</select>
-				<select class="form-control input-sm" style="border-radius: 5px;" id="year">
-					<option>1</option>
-					<option>1</option>
-					<option>1</option>
+				<p>Выберите год:</p>
+				<select class="form-control input-sm" style="border-radius: 5px;" id="years" onchange="getModels(this)">
 				</select>
-				<select class="form-control input-sm" style="border-radius: 5px;" id="model">
-					<option>1</option>
-					<option>1</option>
-					<option>1</option>
+				<p>Выберите модель:</p>
+				<select class="form-control input-sm" style="border-radius: 5px;" id="models" onchange="getEngines(this)">
 				</select>
-				<select class="form-control input-sm" style="border-radius: 5px;" id="engine">
-					<option>1</option>
-					<option>1</option>
-					<option>1</option>
+				<p>Выберите двигатель:</p>
+				<select class="form-control input-sm" style="border-radius: 5px;" id="engines" onchange="chosenCar(this)">
+					<option></option>
 				</select>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 content">
+		<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 content">

@@ -2,17 +2,17 @@
 @section('content')
 
 	<div class="row">
-		<?php foreach($items as $item):?>
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 itemBasic">
+		@foreach($items as $item)
+				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 itemBasicOnList">
 					 <a href="#">
-						<div class="panel panel-default item">
-							<div class="panel-heading itemHead">
-								<h4 class="title"><?=$item['title']?> <?=$brands[$item['id']][0]['name']?></h4>
+						<div class="panel panel-default panelItemOnList">
+							<div class="panel-heading itemHeadOnList">
+								<h4 class="title">{{$item->title}} {{$brands[$item['id']][0]['name']}}</h4>
 							</div>
-							<div class="panel-body">
-								<img class="itemLogo" src="{{ asset('img/logo_1.jpg') }} ">
-								<p id="price"><strong>{{$item['price']}} грн	</strong></p>
-								<button type="submit" class="btn" id="buy">
+							<div class="panel-body itemBodyOnList">
+								<img class="itemLogoOnList" src="{{ asset('img/logo_1.jpg') }} ">
+								<p id="priceOnList"><strong>{{$item->price}} грн </strong></p>
+								<button type="submit" class="btn pull-right buy_{{$item->id}}" id="buyOnList" onclick="addToCart({{$item->id}})">
 									Купить
 								</button>
 							</div>
@@ -20,7 +20,7 @@
 					</a>
 				</div>
 
-		<?php endforeach;?>
+		@endforeach
 	</div>
 
 @stop

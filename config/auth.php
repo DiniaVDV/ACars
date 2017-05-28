@@ -36,6 +36,14 @@ return [
     */
 
     'guards' => [
+		/*'user' =>[
+			'driver' => 'session',
+			'provider' => 'users',
+		],
+		'admin' => [
+			'driver' => 'session',
+			'provider' => 'admin',
+		],*/
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -67,9 +75,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
-
+       /* 'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],*/
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

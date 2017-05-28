@@ -94,6 +94,62 @@ nav{
 	background: #e3ebee;
 }
 
+.item{
+	height: 100%;
+}
+
+.item > .container{
+	width: 88%;
+	height:100%;
+
+}
+
+.carousel, .carousel-inner{
+	height:250px;
+}
+
+.carousel-caption{
+	margin-top: 5%;
+	position:relative;
+	left: 1%;
+	width: 102%;
+	height: 100%;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.carousel-control{
+	width:10%;
+}
+
+#priceMain{
+	position:absolute;
+	bottom: 5px;
+	left: 20%;
+}
+
+#buyMain{
+	margin: 2px auto;
+	background: #9e0b0f;
+	position:absolute;
+	bottom: 5px;
+	left: 53%;
+}
+
+#priceMainSmall{
+	margin-top:10px;
+	position:absolute;
+	left: 35%;
+}
+
+#buyMainSmall{
+	margin: 2px auto;
+	background: #9e0b0f;
+	position:absolute;
+	bottom: 5px;
+	left: 30%;
+}
+
 .list-group {
     margin-bottom: 0px;
 	color: #e3ebee;
@@ -118,18 +174,20 @@ nav{
 	margin-left: 10px;
 }
 
-.itemBasic{
+/*--For list of items( after chosen car)-----*/
+
+.itemBasicOnList{
 	margin: 7px -15px 10px 7px ;
 }
 
-.itemBasic > a,
-			a:hover{
+.itemBasicOnList > a,
+				   a:hover{
 	color: #e3ebee;
 	border-color: #e3ebee;
 	text-decoration: none;
 }
 
-.item{
+.panelItemOnList{
 	position: relative;
 	bottom: 0px;
 	left: 0px;
@@ -138,6 +196,85 @@ nav{
 	height: 200px;
 	border: 1px solid;
 	border-radius: 5px;
+}
+
+.panelItemOnList:hover{
+	border-color: #9e0b0f;
+}
+
+.panelItemOnList > .itemHeadOnList{
+	background: #869290;
+	border: transparent;
+	color: #e3ebee;
+}
+
+.itemHeadOnList > .title{
+	text-align: center;
+	margin: 5px 0px 5px 0px;
+}
+
+.itemBodyOnList{
+	
+}
+
+.itemLogoOnList{
+	display: block;
+	margin: 0 auto;
+	width:150px;
+	height:100px;
+}
+
+#priceOnList{
+	position:absolute;
+	bottom: 5px;
+	left: 27%;
+}
+
+#buyOnList{
+	margin: 2px auto;
+	background: #9e0b0f;
+	position:absolute;
+	bottom: 5px;
+	left: 53%;
+}
+
+/*--------------------*/
+
+
+.itemBasic{
+	margin: 7px -15px 10px 7px;
+	height: 150px;
+}
+
+.itemBasic > a{
+	color: #e3ebee;
+	border-color: #e3ebee;
+	text-decoration: none;
+}
+
+.itemBasic > a:hover{
+	color: #e3ebee;
+	border-color: #red;
+	text-decoration: none;
+}
+
+.oneItem{
+	position: relative;
+	bottom: 0px;
+	left: 0px;
+	background: #869290;
+	margin: auto;
+	height: 200px;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+.oneItem:hover{
+	border-color: #9e0b0f;
+}
+
+.itemBody{
+	background: #869290;
 }
 
 .panel-body > #buy{
@@ -154,11 +291,11 @@ nav{
 	left: 27%;
 }
 
-.item:hover{
+.OneItem:hover{
 	border-color: #9e0b0f;
 }
 
-.item > .itemHead{
+.OneItem > .itemHead{
 	background: #869290;
 	border: transparent;
 	color: #e3ebee;
@@ -174,6 +311,13 @@ nav{
 	margin: 0 auto;
 	width:150px;
 	height:100px;
+}
+
+.itemLogosmall{
+	display: block;
+	margin: 0 auto;
+	width:100px;
+	height:80px;
 }
 
 .auth{

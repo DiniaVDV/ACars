@@ -16,9 +16,9 @@ class AppServiceProvider extends ServiceProvider
     {
 		
         View::share('navbar', \App\Models\Navbar::all());
-		View::share('cars', \App\Models\Car::all());
+        View::share('listOfCarBrand', \App\Models\Car::listOfCarBrands());
         // View::share('categories', \App\Models\Category::all());
-        View::share('categories', \App\Http\Controllers\CategoriesController::listOfCategories());
+        View::share('categories', \App\Models\Category::listOfCategories());
     }
 
     /**

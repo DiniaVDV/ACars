@@ -41,10 +41,10 @@ class CategoriesController extends Controller
 		return $listOfChild;
 	}
 
-	public function select($alias)		
+	public function select($category, Request $request)		
 	{
-		
-		return view('pages.selectCategory');
+		//return $request->session()->get('car_id');
+		return view('pages.listOfItems');
 		
 	}
 }

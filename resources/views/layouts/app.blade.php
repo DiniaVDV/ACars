@@ -1,15 +1,13 @@
 @include('layouts.head')
 @include('layouts.header')
 @include('layouts.navbar')
-@include('layouts.phone.choseCarMenu')
-@include('layouts.phone.mainMenu')
 
 
-@if(!isset($car_id))
+@if(!isset($car['id']))
 	@include('layouts.leftSidebarCar')
 	@yield('content')
 @else
-	@include('layouts.leftSideBarCategoties')
+	@include('layouts.leftSideBarCategoties', array('car' => $car['alias']))
 	@yield('content')
 @endif
 
