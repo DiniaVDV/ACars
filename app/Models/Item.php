@@ -20,6 +20,12 @@ class Item extends Model implements Buyable
         return $this->price;
     }
 
+    public static function getRandomItems()
+    {
+        $items = self::inRandomOrder()->limit(18)->get();
+        return $items;
+    }
+
 	public function getItems()
 	{
 		

@@ -5,9 +5,9 @@
 				<h4>Выбран автомобиль:</h4>
 				<div>
 					<h4><a class="onRed" href="http://localhost/shop/public"><?=$car?></a></h4>
-					<button class="btn btn-default">
+					<a class="btn btn-default" href="{{asset('/')}}">
 						Сброс
-					</button>
+					</a>
 				</div>
 				<h4>Категории:</h4>
 				<div onclick="listOfCategory(arguments[0])">

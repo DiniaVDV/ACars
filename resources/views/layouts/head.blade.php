@@ -63,7 +63,7 @@ function hasClass(elem, className) {
 
 /* indent for all tree children excepts root */
 .Node {
-    background-image : url('http://localhost/Shop_2/public/img/i.gif');
+    background-image : url('{{asset('img/i.gif')}}');
     background-position : top left;
     background-repeat : repeat-y;
     margin-left: 18px;
@@ -77,22 +77,22 @@ function hasClass(elem, className) {
 
 /* left vertical line (grid) for all nodes */
 .IsLast {
-    background-image: url('http://localhost/Shop_2/public/img/i_half.gif');
+    background-image: url('{{asset('img/i_half.gif')}}');
     background-repeat : no-repeat;
 }
 
 .ExpandOpen .Expand {
-    background-image: url('http://localhost/Shop_2/public/img/expand_minus.gif');
+    background-image: url('{{asset('img/expand_minus.gif')}}');
 }
 
 /* closed is higher priority than open */
 .ExpandClosed .Expand {
-    background-image: url('http://localhost/Shop_2/public/img/expand_plus.gif');
+    background-image: url('{{asset('img/expand_plus.gif')}}');
 }
 
 /* highest priority */
 .ExpandLeaf .Expand {
-    background-image: url('http://localhost/Shop_2/public/img/expand_leaf.gif');
+    background-image: url('{{asset('img/expand_leaf.gif')}}');
 }
 
 .Content {

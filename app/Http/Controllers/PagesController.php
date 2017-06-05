@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Car;
 use App\Models\CarItem;
 use App\Models\Item;
@@ -15,8 +16,9 @@ class PagesController extends Controller
 	
     public function index()
     {
-
-        return view('pages.main');
+        $items = Item::getRandomItems();
+        $brands = Brand::all();
+        return view('pages.main', compact('items', 'brand'));
     }
 	
 	

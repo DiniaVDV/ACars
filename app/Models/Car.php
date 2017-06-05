@@ -22,7 +22,7 @@ class Car extends Model
     public static function listOfCarBrands()
     {
         $listOfCarBrands = array();
-        $cars = self::all();
+        $cars = self::orderBy('brand')->get();
 	
         foreach ($cars as $car){
             if (empty($listOfBrands)){
@@ -37,7 +37,7 @@ class Car extends Model
     public static function getListOfYears($brand)
     {   
         $years = array();
-        $cars = self::all();
+        $cars = self::orderBy('years')->get();
         foreach ($cars as $element){
             if($element['brand'] == $brand['brand']){
                 $years[] = $element['years'];
@@ -53,7 +53,7 @@ class Car extends Model
     public static function getListOfModels($year, $brand)
     {
         $models = array();	
-        $cars = self::where('brand', $brand['brand'])->get();
+        $cars = self::where('brand', $brand['brand'])->orderBy('model')->get();
         foreach ($cars as $element){
 			if(!in_array($element['model'], $models)){				
 				$periodOfYear = $element['years'];
@@ -70,7 +70,7 @@ class Car extends Model
 	{
 		$listOfId = array(); 
 		$engines = array();	
-		$cars = self::where('model', $model['model'])->get();
+		$cars = self::where('model', $model['model'])->orderBy('engine')->get();
 		foreach($cars as $element){
 			$engines[]= $element['engine'];
 			$listOfId[] = $element['alias'];	
@@ -102,6 +102,7 @@ class Car extends Model
         };
         return $arrayOfYears;
     }
+
 
     /**
      * The items that belongs to the car.
