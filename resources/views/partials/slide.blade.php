@@ -1,5 +1,6 @@
 <!-- Carousel
 ================================================== -->
+
 <div id="myCarousel" class="carousel slide hidden-xs" data-ride="carousel">
     <!-- Indicators -->
     <div class="carousel-inner" role="listbox">
@@ -11,11 +12,12 @@
                             <a href="#">
                                 <div class="panel panel-default oneItem">
                                     <div class="panel-heading itemHead">
-                                        <h4 class="title">{{$items[$i]->title}}</h4>
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
                                     </div>
                                     <div class="panel-body">
-                                        <img class="itemLogo" src="{{ asset('img/logo_1.jpg') }} ">
-                                        <p id="priceMain"><strong>100 грн </strong></p>
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
                                         <button type="submit" class="btn" id="buyMain">
                                             Купить
                                         </button>
@@ -27,11 +29,12 @@
                             <a href="#">
                                 <div class="panel panel-default oneItem">
                                     <div class="panel-heading itemHead">
-                                        <h4 class="title">2 </h4>
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
                                     </div>
                                     <div class="panel-body">
-                                        <img class="itemLogosmall" src="{{ asset('img/logo_1.jpg') }} ">
-                                        <p id="priceMainSmall"><strong>1000 грн </strong></p>
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
                                         <button type="submit" class="btn" id="buyMainSmall">
                                             Купить
                                         </button>
@@ -44,22 +47,86 @@
             </div>
         </div>
         <div class="item">
-            <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
             <div class="container">
-                <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                <div class="row carousel-caption">
+                    @for($i = 3; $i < 6; $i++)
+                        <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMain">
+                                            Купить
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 hidden-md hidden-lg itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMainSmall">
+                                            Купить
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endfor
                 </div>
             </div>
         </div>
         <div class="item">
-            <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
             <div class="container">
-                <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                <div class="row carousel-caption">
+                    @for($i = 6; $i < 9; $i++)
+                        <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMain">
+                                            Купить
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 hidden-md hidden-lg itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMainSmall">
+                                            Купить
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endfor
                 </div>
             </div>
         </div>
@@ -83,123 +150,128 @@
         <div class="item active">
             <div class="container">
                 <div class="row carousel-caption">
-                    <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
-                        <a href="#">
-                            <div class="panel panel-default oneItem">
-                                <div class="panel-heading itemHead">
-                                    <h4 class="title">1231 khbkjbj</h4>
+                    @for($i = 9; $i < 12; $i++)
+                        <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMain">
+                                            Купить
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="panel-body">
-                                    <img class="itemLogo" src="{{ asset('img/logo_1.jpg') }} ">
-                                    <p id="priceMain"><strong>100 грн </strong></p>
-                                    <button type="submit" class="btn" id="buyMain">
-                                        Купить
-                                    </button>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 hidden-md hidden-lg itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMainSmall">
+                                            Купить
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 hidden-md hidden-lg itemBasic">
-                        <a href="#">
-                            <div class="panel panel-default oneItem">
-                                <div class="panel-heading itemHead">
-                                    <h4 class="title">1231 </h4>
+                            </a>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="row carousel-caption">
+                    @for($i = 12; $i < 15; $i++)
+                        <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMain">
+                                            Купить
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="panel-body">
-                                    <img class="itemLogosmall" src="{{ asset('img/logo_1.jpg') }} ">
-                                    <p id="priceMainSmall"><strong>1000 грн </strong></p>
-                                    <button type="submit" class="btn" id="buyMainSmall">
-                                        Купить
-                                    </button>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 hidden-md hidden-lg itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMainSmall">
+                                            Купить
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
-                        <a href="#">
-                            <div class="panel panel-default oneItem">
-                                <div class="panel-heading itemHead">
-                                    <h4 class="title">1231 khbkjbj</h4>
-                                </div>
-                                <div class="panel-body">
-                                    <img class="itemLogo" src="{{ asset('img/logo_1.jpg') }} ">
-                                    <p id="priceMain"><strong>100 грн </strong></p>
-                                    <button type="submit" class="btn" id="buyMain">
-                                        Купить
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 hidden-md hidden-lg itemBasic">
-                        <a href="#">
-                            <div class="panel panel-default oneItem">
-                                <div class="panel-heading itemHead">
-                                    <h4 class="title">1231 </h4>
-                                </div>
-                                <div class="panel-body">
-                                    <img class="itemLogosmall" src="{{ asset('img/logo_1.jpg') }} ">
-                                    <p id="priceMainSmall"><strong>1000 грн </strong></p>
-                                    <button type="submit" class="btn" id="buyMainSmall">
-                                        Купить
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
-                        <a href="#">
-                            <div class="panel panel-default oneItem">
-                                <div class="panel-heading itemHead">
-                                    <h4 class="title">1231 khbkjbj</h4>
-                                </div>
-                                <div class="panel-body">
-                                    <img class="itemLogo" src="{{ asset('img/logo_1.jpg') }} ">
-                                    <p id="priceMain"><strong>100 грн </strong></p>
-                                    <button type="submit" class="btn" id="buyMain">
-                                        Купить
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 hidden-md hidden-lg itemBasic">
-                        <a href="#">
-                            <div class="panel panel-default oneItem">
-                                <div class="panel-heading itemHead">
-                                    <h4 class="title">1231 </h4>
-                                </div>
-                                <div class="panel-body">
-                                    <img class="itemLogosmall" src="{{ asset('img/logo_1.jpg') }} ">
-                                    <p id="priceMainSmall"><strong>1000 грн </strong></p>
-                                    <button type="submit" class="btn" id="buyMainSmall">
-                                        Купить
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endfor
 
                 </div>
             </div>
         </div>
         <div class="item">
-            <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
             <div class="container">
-                <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                <div class="row carousel-caption">
+                    @for($i = 15; $i < 18; $i++)
+                        <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMain">
+                                            Купить
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 hidden-md hidden-lg itemBasic">
+                            <a href="#">
+                                <div class="panel panel-default oneItem">
+                                    <div class="panel-heading itemHead">
+                                        <h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}}</h4>
+                                        <h4 class="title"> {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
+                                        <p id="priceMain"><strong>{{ceil(ceil($itemsBrans['items'][$i]->price * 1.2))}} грн </strong></p>
+                                        <button type="submit" class="btn" id="buyMainSmall">
+                                            Купить
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endfor
+
                 </div>
             </div>
         </div>
