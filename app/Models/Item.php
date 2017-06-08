@@ -20,7 +20,12 @@ class Item extends Model implements Buyable
         return $this->price;
     }
 
-    public static function getRandomItems()
+	public function getItems()
+	{
+		
+	}
+	
+	public static function getRandomItems()
     {
         $items = self::inRandomOrder()->limit(18)->get();
         $brands = array();
@@ -33,14 +38,9 @@ class Item extends Model implements Buyable
 
         return array('items' => $items, 'brands' => $brands);
     }
-
-	public function getItems()
-	{
-		
-	}
 	
    	 /**
-     * The brand that belongs to the item.
+     * The brands that belongs to the item.
      *
      * @return 
      */

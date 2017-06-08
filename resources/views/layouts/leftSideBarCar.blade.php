@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 ">
+		<div class="col-sm-3 col-md-2 col-lg-2 hidden-xs">
 			<div class="leftSidebar">
 				<h4>Подбор по модели авто</h4>
 				<p>Выберите марку:</p>
@@ -18,4 +18,4 @@
 				</select>
 			</div>
 		</div>
-		<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 content">
+		<div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 content">

@@ -1,11 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.appWithoutSidebar')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+            <div class="panel panel-default auth">
+                <div class="panel-heading authHead"><h4>Востановить пароль</h4></div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -62,7 +59,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn authButton">
                                     Reset Password
                                 </button>
                             </div>
@@ -70,7 +67,4 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 @endsection

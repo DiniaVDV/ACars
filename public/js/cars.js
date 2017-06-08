@@ -84,25 +84,38 @@ function chosenCar(data){
 
 }
 
+
+// $(document).ready(function(){
+		// var check = $('.buyOnList').click(function(){
+
+		// });	
+		// console.log(check);
+// });
+
+/*--------------ADD TO CART---------------------------------------------------------------------------*/
+
 function addToCart(item_id){
-    if(item_id){
-        $.ajax({
-            type:"GET",
-            url: "/Acars.xxx/shop/public/add_to_cart/"+item_id,
-            data:{item_id : item_id},
-            success: function(item){
+	if(item_id){
+			$.ajax({
+				type:"GET",
+				url: "/Acars.xxx/shop/public/add_to_cart/"+item_id,
+				data:{item_id : item_id},
+				success: function(item){
+					var totalQty = parseInt(document.getElementById('totalQty').innerHTML);
+					totalQty++;
+					document.getElementById('totalQty').innerHTML = totalQty;
+	   
+				},
+				error: function(data){
+					console.log(data);
+				}
+			});
 
-                console.log(item);
-/*                $('#engines').empty();
-                $('#engines').append("<option></option>");
-                for(var i = 0; i < engines[0].length; i++){
-                    $('#engines').append("<option value='" + engines[1][i] +"'>" + engines[0][i] + "</option>");
-                }*/
-            },
-            error: function(data){
-                console.log(data);
-            }
-        });
+		}
+	}
 
-    }
-}
+
+
+/*------------------------------------------------------------------------------------------------------*/
+
+

@@ -4,7 +4,7 @@
 			<div class="leftSidebar">
 				<h4>Выбран автомобиль:</h4>
 				<div>
-					<h4><a class="onRed" href="http://localhost/shop/public"><?=$car?></a></h4>
+					<h4><a class="onRed" href="http://localhost/shop/public"><?=$car->alias?></a></h4>
 					<a class="btn btn-default" href="{{asset('/')}}">
 						Сброс
 					</a>
