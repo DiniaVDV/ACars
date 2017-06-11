@@ -96,11 +96,13 @@ function chosenCar(data){
 
 function addToCart(item_id){
 	if(item_id){
+		console.log(item_id);
 			$.ajax({
 				type:"GET",
 				url: "/Acars.xxx/shop/public/add_to_cart/"+item_id,
 				data:{item_id : item_id},
 				success: function(item){
+					
 					var totalQty = parseInt(document.getElementById('totalQty').innerHTML);
 					totalQty++;
 					document.getElementById('totalQty').innerHTML = totalQty;

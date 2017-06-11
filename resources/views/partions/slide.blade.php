@@ -18,7 +18,7 @@
 								</div>
 								<div class="panel-body">
 									<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-									<button type="submit" class="btn" id="buyMain">
+									<button type="submit" class="btn" id="buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 										Купить
 									</button>
 								</div>

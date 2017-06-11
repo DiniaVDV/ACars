@@ -48,10 +48,9 @@ class ItemsController extends Controller
     public function addToCart(Request $request, $id)
     {
         $item = Item::find($id);
-		
         $cart = Cart::add($item, 1);
         $cont = Cart::content();
-        return  $cont;
+        // return  $cont;
     }
 
     public function getCart()

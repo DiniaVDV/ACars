@@ -3,8 +3,7 @@
 
 	<div class="row">
 		@foreach($items as $item)
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 itemBasicOnList">
-					 
+				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 itemBasicOnList">				 
 						<div class="panel panel-default panelItemOnList">
 							<a class="aboutItem" href="{{asset('/cars')}}/{{$car->alias}}/select/{{$item->name}}_{{$item->code}}">
 								<div class="panel-heading itemHeadOnList">
@@ -14,7 +13,7 @@
 								</div>
 							</a>
 							<div class="panel-body itemBodyOnList">
-								<button type="submit" class="btn pull-right buy_{{$item->id}} buyOnList" onclick="">
+								<button type="submit" class="btn pull-right buy_{{$item->id}} buyOnList" onclick="addToCart({{$item->id}})">
 									Купить
 								</button>
 							</div>
