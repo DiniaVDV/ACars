@@ -60,8 +60,27 @@ class Item extends Model implements Buyable
     // {
         // return $this->belongsToMany('App\Models\Brand', 'brand_item', 'brand_id', 'item_id');
     // }
-
 	
+   /**
+     * Get the cars associated with the given item
+	 *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+	 
+	public function cars()
+	{
+		return $this->belongsToMany('App\Models\Car');
+	}
+	 
+	 /**
+     * Get a car id s associated with current item
+     *
+     * @return array
+     */
+	 
+	public function getCarListAttribute()
+	{
+		return $this->cars->pluck('id')->toArray();
+	}
 	
-
 }

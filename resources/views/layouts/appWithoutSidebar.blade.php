@@ -1,9 +1,7 @@
 @include('layouts.head')
 @include('layouts.header')
 @include('layouts.navbar')
-		</div>
-	</div>
-</div>
+@include('layouts.phone.mainMenu')
 
 <div class="container">
 	<div class="row">

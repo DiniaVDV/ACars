@@ -12,13 +12,13 @@
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
 									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-										<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
 								</div>
 								<div class="panel-body">
-									<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-									<button type="submit" class="btn" id="buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
+									<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+									<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 										Купить
 									</button>
 								</div>
@@ -29,13 +29,13 @@
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
 										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-											<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
 									</div>
 									<div class="panel-body">
-										<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-										<button type="submit" class="btn" id="buyMain">
+										<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+										<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 											Купить
 										</button>
 									</div>
@@ -54,13 +54,13 @@
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
 									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-										<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
 								</div>
 								<div class="panel-body">
-									<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-									<button type="submit" class="btn" id="buyMain">
+									<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+									<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 										Купить
 									</button>
 								</div>
@@ -71,13 +71,13 @@
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
 										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-											<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
 									</div>
 									<div class="panel-body">
-										<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-										<button type="submit" class="btn" id="buyMain">
+										<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+										<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 											Купить
 										</button>
 									</div>
@@ -96,13 +96,13 @@
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
 									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-										<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
 								</div>
 								<div class="panel-body">
-									<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-									<button type="submit" class="btn" id="buyMain">
+									<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+									<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 										Купить
 									</button>
 								</div>
@@ -113,13 +113,13 @@
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
 										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-											<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
 									</div>
 									<div class="panel-body">
-										<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-										<button type="submit" class="btn" id="buyMain">
+										<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+										<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 											Купить
 										</button>
 									</div>
@@ -155,13 +155,13 @@
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
 									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-										<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
 								</div>
 								<div class="panel-body">
-									<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-									<button type="submit" class="btn" id="buyMain">
+									<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+									<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 										Купить
 									</button>
 								</div>
@@ -172,13 +172,13 @@
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
 										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-											<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
 									</div>
 									<div class="panel-body">
-										<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-										<button type="submit" class="btn" id="buyMain">
+										<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+										<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 											Купить
 										</button>
 									</div>
@@ -197,13 +197,13 @@
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
 									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-										<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
 								</div>
 								<div class="panel-body">
-									<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-									<button type="submit" class="btn" id="buyMain">
+									<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+									<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 										Купить
 									</button>
 								</div>
@@ -214,13 +214,13 @@
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
 										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-											<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
 									</div>
 									<div class="panel-body">
-										<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-										<button type="submit" class="btn" id="buyMain">
+										<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+										<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 											Купить
 										</button>
 									</div>
@@ -240,13 +240,13 @@
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
 									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-										<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
 								</div>
 								<div class="panel-body">
-									<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-									<button type="submit" class="btn" id="buyMain">
+									<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+									<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 										Купить
 									</button>
 								</div>
@@ -257,13 +257,13 @@
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
 										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
-											<h4 class="title">{{$itemsBrans['items'][$i]->title}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
+											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
 									</div>
 									<div class="panel-body">
-										<p id="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
-										<button type="submit" class="btn" id="buyMain">
+										<p class="priceMain"><strong>{{ceil($itemsBrans['items'][$i]->price * 1.2)}} грн </strong></p>
+										<button type="submit" class="btn buyMain" onclick="addToCart({{$itemsBrans['items'][$i]->id}})">
 											Купить
 										</button>
 									</div>

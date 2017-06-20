@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-	
+	protected $fillable = [
+		'title',
+		'category_name',
+		'has_child',
+		'parent_id',
+		'parent_id_2',
+		'description',
+		
+	];
 	//Created array of categoties in right form (for show in browser).
 	
     public static function  listOfCategories()

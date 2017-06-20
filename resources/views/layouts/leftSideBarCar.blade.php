@@ -4,16 +4,16 @@
 			<div class="leftSidebar">
 				<h4>Подбор по модели авто</h4>
 				<p>Выберите марку:</p>
-				<select class="form-control input-sm" id="brands" onchange="getYears(this)">
+				<select class="form-control input-sm brands" onchange="getYears(this)">
 				</select>
 				<p>Выберите год:</p>
-				<select class="form-control input-sm" style="border-radius: 5px;" id="years" onchange="getModels(this)">
+				<select class="form-control input-sm years" style="border-radius: 5px;" onchange="getModels(this)">
 				</select>
 				<p>Выберите модель:</p>
-				<select class="form-control input-sm" style="border-radius: 5px;" id="models" onchange="getEngines(this)">
+				<select class="form-control input-sm models" style="border-radius: 5px;" onchange="getEngines(this)">
 				</select>
 				<p>Выберите двигатель:</p>
-				<select class="form-control input-sm" style="border-radius: 5px;" id="engines" onchange="chosenCar(this)">
+				<select class="form-control input-sm engines" style="border-radius: 5px;" onchange="chosenCar(this)">
 					<option></option>
 				</select>
 			</div>

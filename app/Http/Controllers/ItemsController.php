@@ -19,6 +19,9 @@ class ItemsController extends Controller
 		$items = Car::findItems($car['id']);
 		$request->session()->put('listOfItems', $items);
 		foreach($items as $item){
+			if(empty($item->img)){
+                $item->img = 'no_picture.gif';
+            }
 			$brands[$item['id']] = Item::find($item['id'])->brand()->get();
 		}
 		
@@ -32,6 +35,9 @@ class ItemsController extends Controller
 		$items = Car::find($car_id)->items()->get();
 		$request->session()->put('listOfItems', $items);
 		foreach($items as $item){
+			if(empty($item->img)){
+                $item->img = 'no_picture.gif';
+            }
 			$brands[$item['id']] = Item::find($item['id'])->brand()->get();
 		}
         return view('pages.listOfItems', compact('brands', 'items', 'alias'));
@@ -45,17 +51,18 @@ class ItemsController extends Controller
 		
 	}
 
-    public function addToCart(Request $request, $id)
+    public function addToCart( $id)
     {
-        $item = Item::find($id);
-        $cart = Cart::add($item, 1);
+		
+        $item = Item::findOrFail($id);
+		$brand = Item::findOrFail($id)->brand()->get();
+        $cart = Cart::add($item, 1, ['brand'  => $brand, 'itemCode' => $item->code]);
         $cont = Cart::content();
         // return  $cont;
     }
 
     public function getCart()
     {
-
         $cart = Cart::content();
         if(Cart::count() == null){
             return view('shop.shoppingCart');
@@ -72,4 +79,35 @@ class ItemsController extends Controller
         return view('shop.checkout', compact('cart'));
 
     }
+	
+	public function changeInstance(Request $request)
+	{
+		$data = $request->all();
+		if($data['flag'] == 'true'){
+			$this->addToCart($data['itemId']);
+		}elseif($data['flag'] == 'false' && $data['deleteItem'] == 'false'){
+			$cart = Cart::content();
+			foreach($cart as $item){
+				if($item->id == $data['itemId']){
+					$qty = $item->qty - 1;
+					Cart::update($item->rowId, $qty);
+				}
+			}
+		}
+		elseif($data['deleteItem'] == 'true'){
+			$cart = Cart::content();
+			foreach($cart as $item){
+				if($item->id == $data['itemId'] && $data['flag'] == 'false'){
+					Cart::remove($item->rowId);
+				}
+			}
+		}
+	}
+	
+	public function cleanCart()
+	{
+		Cart::destroy();
+	}
+	
+	
 }

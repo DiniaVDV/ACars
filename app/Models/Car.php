@@ -131,4 +131,23 @@ class Car extends Model
 		return 'alias';
 	}
 
+	public function typeOfBody()
+	{
+		return $this->belongsTo('App\Models\TypeOfBody');
+	}
+	
+	public function typeOfCar()
+	{
+		return $this->belongsTo('App\Models\TypeOfCar');
+	}	
+	
+	public function typeOfEngine()
+	{
+		return $this->belongsTo('App\Models\TypeOfEngine');
+	}
+	
+	public function wheelDrive()
+	{
+		return $this->belongsTo('App\Models\WheelDrive');
+	}
 }

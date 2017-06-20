@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+		<div class="col-sm-3 col-md-3 col-lg-3 hidden-xs">
 			<div class="leftSidebar">
 				<h4>Выбран автомобиль:</h4>
 				<div>
@@ -62,5 +62,5 @@
 	
 			</div>
 		</div>
-		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 content">
+		<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 content">
 

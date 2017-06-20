@@ -9,6 +9,7 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide');*/
 body{
     background: #26292e;
+	font-family: 'Finger Paint', cursive;
 }
 
 
@@ -34,9 +35,18 @@ nav{
     margin: 15px -15px 15px -15px;
 }
 
+.mobileNavbar{
+	background:#26292e;
+	border: none;
+	margin-bottom: 5px;
+	font-family: 'Finger Paint', cursive;
+}
+
 #buttonMenu{
-    border: 1px solid #e3ebee;
+    border: 1px solid #869290;
     background: #26292e;
+	margin-top: 8px;
+	
 }
 
 .dropdown-menu{
@@ -48,13 +58,34 @@ nav{
     color: #9e0b0f;
 }
 
-.dropdown-menu li a{
+.mobileNavbar .navbar-nav > li > a {
+    color: #e3ebee;
+}
+
+.mobileNavbar .navbar-nav > li > a:hover {
     color: #9e0b0f;
 }
+
+.mobileNavbar .navbar-nav > .active > a{
+	color: #9e0b0f;
+}
+
+#selectCarMenu  .form-control{
+	color: #9e0b0f;
+	background: #e3ebee;
+}
+
 .smenu{
     color: #e3ebee;
 }
 
+.mobileNavbar .navbar-toggle .icon-bar{
+	background-color: #e3ebee;
+}
+
+.dropdown-menu li a{
+    color: #9e0b0f;
+}
 .content{
     background: #869290;
     color: #e3ebee;
@@ -132,7 +163,7 @@ nav{
 /*--For list of items( after chosen car)-----*/
 
 .itemBasicOnList{
-	margin: 7px -15px 10px 7px ;
+	margin: 7px -15px 10px 7px;
 }
 
 .itemBasicOnList > a,
@@ -179,10 +210,18 @@ nav{
 	height:100px;
 }
 
-#priceOnList{
+.priceOnList{
 	position:absolute;
 	bottom: 5px;
 	left: 27%;
+}
+
+.buyOnList{
+	margin: 2px auto;
+	background: #9e0b0f;
+	position:absolute;
+	bottom: 5px;
+	left: 53%;
 }
 
 .buyOnList{
@@ -198,80 +237,17 @@ nav{
 }
 /*--------------------*/
 
-
-
-
-/*--For list of items( after chosen car)-----*/
-
-.itemBasicOnList{
-	margin: 7px -15px 10px 7px ;
+.qtyItemOnCart{
+	margin: 3px 5px;
 }
 
-.itemBasicOnList > a,
-				   a:hover{
-	color: #e3ebee;
-	border-color: #e3ebee;
-	text-decoration: none;
-}
-
-.panelItemOnList{
-	position: relative;
-	bottom: 0px;
-	left: 0px;
-	background: #869290;
-	margin: auto;
-	height: 200px;
-	border: 1px solid;
-	border-radius: 5px;
-}
-
-.panelItemOnList:hover{
-	border-color: #9e0b0f;
-}
-
-.panelItemOnList > .itemHeadOnList{
-	background: #869290;
-	border: transparent;
-	color: #e3ebee;
-}
-
-.itemHeadOnList > .title{
-	text-align: center;
-	margin: 5px 0px 5px 0px;
-}
-
-.itemBodyOnList{
-	
-}
-
-.itemLogoOnList{
-	display: block;
-	margin: 0 auto;
-	width:150px;
-	height:100px;
-}
-
-#priceOnList{
-	position:absolute;
-	bottom: 5px;
-	left: 27%;
-}
-
-#buyOnList{
-	margin: 2px auto;
-	background: #9e0b0f;
-	position:absolute;
-	bottom: 5px;
-	left: 53%;
-}
-
-/*--------------------*/
 
 .auth{
 	margin: 5px;
 	background:	#869290;
 	border-color:#9e0b0f;
 	border-radius: 5px;
+	border: 1px solid;
 }
 
 .auth > .authHead{
@@ -352,7 +328,7 @@ select:focus{
 #window{
 	color: #e3ebee;
 	width: 80%;
-	height: 230px;
+	height: 350px;
 	margin: 50px auto;
 	display: none;
 	background:  #869290;
@@ -398,13 +374,13 @@ select:focus{
 	width:10%;
 }
 
-#priceMain{
+.priceMain{
 	position:absolute;
 	bottom: 5px;
 	left: 20%;
 }
 
-#buyMain{
+.buyMain{
 	margin: 2px auto;
 	background: #9e0b0f;
 	position:absolute;
@@ -525,3 +501,46 @@ select:focus{
 	margin-top: 0px;
 }
 /*------------------End for slides---------------------------*/
+
+/*---------------Preload div------------------------*/
+#prldr{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background: #9A12B3;
+	z-index: 30;
+}
+
+.contpre small{
+	font-size: 25px;
+}
+
+.contpre{
+	width: 250px;
+	height: 100px;
+	position: absolute;
+	left: 50%;
+	top:  50%;
+	margin-left: -125px;
+	margin-top: -50px;
+	color: #fff;
+	font-size: 40px;
+	letter-spacing: -2px;
+	text-align: center;
+	line-height: 35px;
+}
+
+#prldr .svg_anm{
+	position: absolute;
+	width: 41px;
+	height: 41px;
+	background: url(../img/tail-spin.svg) center center no-repeat;
+	background-size: 41px;
+	margin: -16px 0 0 -16px;
+}
+/*---------------------------------------*/
+
+
+

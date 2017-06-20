@@ -1,7 +1,6 @@
 @include('layouts.head')
 @include('layouts.header')
 @include('layouts.navbar')
-@include('layouts.phone.choseCarMenu')
 @include('layouts.phone.mainMenu')
 
 @if(!isset($car['id']))

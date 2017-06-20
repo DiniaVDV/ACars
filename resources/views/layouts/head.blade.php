@@ -21,10 +21,16 @@
 
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <title>ACars</title>
-	<script>
+	<script type="text/javascript">
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+		
+		$.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+            }
+        });
 function listOfCategory(event) {
         event = event || window.event
         var clickedElem = event.target || event.srcElement
@@ -132,3 +138,10 @@ function hasClass(elem, className) {
 </style>
 </head>
 <body>
+	<!--<div id="prldr">
+		<div class="contpre">
+			<span class="svg_anm"></span>
+			<br>Подожите<br>	
+			<small>идет загрузка</small>
+		</div>
+	</div>-->

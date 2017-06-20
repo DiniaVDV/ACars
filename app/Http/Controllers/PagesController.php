@@ -17,7 +17,7 @@ class PagesController extends Controller
     public function index()
     {
         $itemsBrans = Item::getRandomItems();
-        return view('pages.main', compact('items', 'itemsBrans'));
+        return view('pages.main', compact('itemsBrans'));
     }
 	
 	

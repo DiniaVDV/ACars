@@ -33,18 +33,27 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany('App\Models\Comment');
     }
-
+	
+	 /**
+     * Get the roles associated with the given user.
+	 *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+	public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role', 'user_role');
+    }
     /**
      * A user can have a many orders.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
 
-    public function order()
+    public function orders()
     {
         return $this->hasMany('App\Models\Order');
     }
