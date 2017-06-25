@@ -46,4 +46,9 @@ class Category extends Model
 		}
 		return $listOfChild;
 	}
+
+	public function items()
+    {
+        return $this->belongsToMany('App\Models\Item');
+    }
 }

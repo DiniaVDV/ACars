@@ -26,6 +26,7 @@ class Car extends Model
 	
 	public static function getCar($alias)
 	{
+
 		$car = self::where('alias', $alias)->first();
 		$car['alias'] = strtoupper(str_replace('_', ' ', $car['alias']));
 		return $car;

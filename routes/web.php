@@ -32,6 +32,7 @@ Route::get('/get_models', 'CarsController@getModels');
 
 Route::get('/get_engines', 'CarsController@getEngines');
 Route::get('/cars/{alias}', 'ItemsController@getItems');
+Route::get('/cars/{alias}/about', 'CarsController@aboutCar');
 Route::get('/cars/{alias}/categories/{category_name}', 'CategoriesController@select');
 Route::get('/cars/{alias}/select/{item_name}', 'ItemsController@selectItem');
 

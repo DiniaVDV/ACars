@@ -16,35 +16,22 @@ class ItemsController extends Controller
 			
 	public function getItems($alias, Request $request)
 	{
+        $request->session()->put('car_alias', $alias);
 		$car = Car::getCar($alias);
 		$request->session()->put('car_id', $car['id']);
-		
+        $brands = array();
 		$items = Car::findItems($car['id']);
 		$request->session()->put('listOfItems', $items);
 		foreach($items as $item){
-			if(empty($item->img)){
-                $item->img = 'no_picture.gif';
+			if(empty($item->image)){
+                $item->image = 'no_picture.gif';
             }
 			$brands[$item['id']] = Item::find($item['id'])->brand()->get();
 		}
-		
-        return view('pages.listOfItems', compact('brands', 'items', 'car'));		
-		
+        return view('pages.listOfItems', compact('brands', 'items', 'car'));
 	}	
-	
-	public function listOfItems(Request $request)
-    {
-		$alias = $request->input('alias');	
-		$items = Car::find($car_id)->items()->get();
-		$request->session()->put('listOfItems', $items);
-		foreach($items as $item){
-			if(empty($item->img)){
-                $item->img = 'no_picture.gif';
-            }
-			$brands[$item['id']] = Item::find($item['id'])->brand()->get();
-		}
-        return view('pages.listOfItems', compact('brands', 'items', 'alias'));
-    }
+
+
 	
 	public function selectItem($car, $item_name_code, Request $request)		
 	{
@@ -56,12 +43,9 @@ class ItemsController extends Controller
 
     public function addToCart( $id)
     {
-		
         $item = Item::findOrFail($id);
 		$brand = Item::findOrFail($id)->brand()->get();
-        $cart = Cart::add($item, 1, ['brand'  => $brand, 'itemCode' => $item->code]);
-        $cont = Cart::content();
-        // return  $cont;
+        Cart::add($item, 1, ['brand'  => $brand, 'itemCode' => $item->code]);
     }
 
     public function getCart()

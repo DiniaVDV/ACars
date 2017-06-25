@@ -26,8 +26,8 @@ class OrdersController extends Controller
 	
 	public function details($id)
 	{
-		
 		$orderDetails = OrderDetail::where('order_id', $id)->get();
+
 		foreach($orderDetails as $itemDetail){
 			$item = Item::findOrFail($itemDetail->id);
 			$brand = Brand::findOrFail($item->brand_id);

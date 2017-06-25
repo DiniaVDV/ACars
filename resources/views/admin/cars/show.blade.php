@@ -12,8 +12,7 @@
                 <th class="tableCenter">Марка</th>
                 <th class="tableCenter">Года выпуска</th>
                 <th class="tableCenter">Модель</th> 
-				<th class="tableCenter">Объем двигателя</th>  
-                <th class="tableCenter">Модификация</th>
+				<th class="tableCenter">Объем двигателя</th>
                 <th class="tableCenter">Тип автомобиля</th>
                 <th class="tableCenter">Тип кузова</th>
                 <th class="tableCenter">Тип двигателя</th> 
@@ -33,7 +32,6 @@
                     <td align="center"><strong>{{!empty($car->year_began_id) ? $years[$car->year_began_id] : ''}} - {{!empty($car->year_ended_id) ? $years[$car->year_ended_id] : ''}} </strong></td>
                     <td align="center"><strong>{{$car->model}}</strong></td>
                     <td align="center"><strong>{{$car->engine}}</strong></td>
-                    <td align="center"><strong>{{$car->modification}}</strong></td>
                     <td align="center"><strong>{{!empty($car->type_of_car_id) ? $typeOfCar[$car->type_of_car_id] : 'нет данных'}}</strong></td>
                     <td align="center"><strong>{{!empty($car->type_of_body_id) ? $typeOfBody[$car->type_of_body_id] : 'нет данных'}}</strong></td>
                     <td align="center"><strong>

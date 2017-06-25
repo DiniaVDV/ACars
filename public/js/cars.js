@@ -15,7 +15,7 @@ function getYears(data){
 		$('.engines').empty();
 		$.ajax({
 			type: "GET",
-			url: "/Acars.xxx/shop/public/get_years",
+			url: /*"/Acars.xxx/shop/public*/"/get_years",
 			data:  {brand : brand},
 			success: function (years) {
 						// console.log(years);
@@ -38,7 +38,7 @@ function getModels(data){
 		$('.engines').empty();
 		$.ajax({
 			type: "GET",
-			url: "/Acars.xxx/shop/public/get_models",
+			url: /*"/Acars.xxx/shop/public*/"/get_models",
 			data: {year: year},
 			success: function (models) {
 						// console.log(models);
@@ -60,7 +60,7 @@ function getEngines(data){
 	if(model){
 		$.ajax({
 			type:"GET",
-			url: "/Acars.xxx/shop/public/get_engines",
+			url: /*"/Acars.xxx/shop/public*/"/get_engines",
 			data:{model : model},
 			success: function(engines){
 						// console.log(engines);
@@ -81,12 +81,33 @@ function getEngines(data){
 function chosenCar(data){
 	var alias = data.options[data.selectedIndex].value;
 	if(alias){
-		document.location.href = "/Acars.xxx/shop/public/cars/"+alias;
+		document.location.href = "/cars/"+alias;
 	}
 
 }
+/*************************Sort Items**************************************/
+function typeSort(data){
+	var typeSort = data.options[data.selectedIndex].value;
+	if(typeSort){
+	$.ajax({
+		type:"GET",
+		url: "/Acars.xxx/shop/public/typeSort",
+		data:{typeSort: typeSort},
+		success: function(data){
+			console.log(data);
+		},
+		error: function(data){
+			console.log(data);
+		},
+	});
+	}
+}
 
+function brandSort(data){
 
+}
+
+/***************************************************************************/
 // $(document).ready(function(){
 		// var check = $('.buyOnList').click(function(){
 

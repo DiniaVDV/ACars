@@ -548,11 +548,22 @@ select:focus{
 	position: absolute;
 	width: 41px;
 	height: 41px;
-	background: url(../img/tail-spin.svg) center center no-repeat;
+	background: url(img/tail-spin.svg) center center no-repeat;
 	background-size: 41px;
 	margin: -16px 0 0 -16px;
 }
 /*---------------------------------------*/
 
+#brandSort {
+	color: #9e0b0f;
+	background: #e3ebee;
+}
 
+#typeSort {
+	color: #9e0b0f;
+	background: #e3ebee;
+}
 
+.Content a{
+	color: #e3ebee;
+}

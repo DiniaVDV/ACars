@@ -4,7 +4,7 @@
 			<div class="leftSidebar">
 				<h4>Выбран автомобиль:</h4>
 				<div>
-					<h4><a class="onRed" href="http://localhost/shop/public"><?=$car->alias?></a></h4>
+					<h4><a class="onRed" href="{{url()->current()}}/about">{{$car->alias}}</a></h4>
 					<a class="btn btn-default" href="{{asset('/')}}">
 						Сброс
 					</a>
@@ -29,7 +29,8 @@
 																					if(!is_numeric($grandChildElement)):?>									
 																						<li class="Node ExpandLeaf IsLast">
 																							<div class="Expand"></div>
-																							<div class="Content"><?=$grandChildElement?></div>
+																							<div class="Content"><a
+																										href="{{asset('/cars')}}/{{Session::get('car_alias')}}/categories/{{$grandChildValue->category_name}}"><?=$grandChildElement?></a></div>
 																						</li>
 																			  <?php endif;?>
 																		  <?php endforeach;?>									

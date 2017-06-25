@@ -33,5 +33,9 @@ class CarsController extends Controller
 		$result = Car::getListOfEngines($model);
 		return $result;	
 	}
-	
+
+	public function aboutCar()
+    {
+        return 1;
+    }
 }

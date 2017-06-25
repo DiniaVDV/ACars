@@ -42,7 +42,7 @@
 							@foreach($navbar as $element)
 										   @if($element->dropdown_menu == 'true' && $element->for_admin == 'false')
 											   @if($element->title == 'Личный кабинет')
-													<li><a href="{{$element->alias}}/{{Auth::user()->name}}">{{$element->title}}</a></li>
+													<li><a href="{{asset($element->alias)}}/{{Auth::user()->name}}">{{$element->title}}</a></li>
 												@else
 													<li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
 												@endif

@@ -2,9 +2,8 @@
 @include('layouts.header')
 @include('layouts.navbar')
 @include('layouts.phone.mainMenu')
-
 @if(!isset($car['id']))
-	@include('layouts.leftSidebarCar')
+	@include('layouts.leftSideBarCar')
 	@yield('content')
 @else
 	@include('layouts.leftSideBarCategoties', array('carName' => $car['title']))
