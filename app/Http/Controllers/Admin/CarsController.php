@@ -8,7 +8,8 @@ use App\Models\TypeOfBody;
 use App\Models\TypeOfCar;
 use App\Models\TypeOfEngine;
 use App\Models\WheelDrive;
-// use App\Http\Requests\CarsRequest;
+use App\Models\Year;
+use App\Http\Requests\CarRequest;
 
 class carsController extends Controller
 {
@@ -19,20 +20,26 @@ class carsController extends Controller
 		$typeOfCar = TypeOfCar::pluck('name', 'id');
 		$typeOfEngine = TypeOfEngine::pluck('name', 'id');
 		$wheelDrive = WheelDrive::pluck('name', 'id');
+		$years = Year::pluck('year', 'id');
         $cars = Car::paginate(10);
-        return view('admin.cars.show', compact('cars', 'typeOfBody', 'typeOfCar', 'typeOfEngine', 'wheelDrive'));
+        return view('admin.cars.show', compact('cars', 'typeOfBody', 'typeOfCar', 'typeOfEngine', 'wheelDrive', 'years'));
     }
 
     public function create()
     {
-        return view('admin.cars.create');
+		$typeOfBody = TypeOfBody::pluck('name', 'id');
+		$typeOfCars = TypeOfCar::pluck('name', 'id');
+		$typeOfEngine = TypeOfEngine::pluck('name', 'id');
+		$wheelDrive = WheelDrive::pluck('name', 'id');
+		$years = Year::pluck('year', 'id');		
+        return view('admin.cars.create', compact('car', 'typeOfBody', 'typeOfEngine', 'typeOfCars', 'wheelDrive', 'years'));
     }
 
-    public function store(/*carsRequest $request*/)
+    public function store(CarRequest $request)
     {
         Car::create($request->all());
         return redirect('admin/cars')->with([
-            'flash_message' => 'Реклама добавлена!',
+            'flash_message' => 'Автомобиль добавлен!',
             'flash_message_important' => true
         ]);
     }
@@ -40,15 +47,22 @@ class carsController extends Controller
     public function edit($id)
     {
         $car = Car::findOrFail($id);
-        return view('admin.cars.edit', compact('Car'));
+		$typeOfBody = TypeOfBody::pluck('name', 'id');
+		$typeOfCars = TypeOfCar::pluck('name', 'id');
+		$typeOfEngine = TypeOfEngine::pluck('name', 'id');
+		$wheelDrive = WheelDrive::pluck('name', 'id');
+		$years = Year::pluck('year', 'id');
+
+        return view('admin.cars.edit', compact('car', 'typeOfBody', 'typeOfEngine', 'typeOfCars', 'wheelDrive', 'years'));
     }
 
-    public function update($id/*, CarsRequest $request*/)
+    public function update($id, CarRequest $request)
     {
         $car = Car::findOrFail($id);
+
         $car->update($request->all());
         return redirect('admin/cars')->with([
-            'flash_message' => 'Реклама обновлена!',
+            'flash_message' => 'Данные об авто обновлены!',
             'flash_message_important' => true
         ]);
     }
@@ -57,9 +71,10 @@ class carsController extends Controller
     {
         Car::findOrFail($id)->delete();
         return redirect()->route('admin/cars')->with([
-            'flash_message' => 'Реклама удалена!',
+            'flash_message' => 'Автомобиль удален!',
             'flash_message_important' => true
         ]);
     }
+	
 
 }

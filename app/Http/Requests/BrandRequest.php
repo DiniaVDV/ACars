@@ -13,7 +13,7 @@ class BrandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class BrandRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'country' => 'required'
+        ];
+    }
+	
+	 /**
+     * Получить сообщения об ошибках для определённых правил проверки.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Необходимо написать название.',
+            'country.required' => 'Необходимо указать страну.',
         ];
     }
 }

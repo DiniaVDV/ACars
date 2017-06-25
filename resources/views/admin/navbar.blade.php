@@ -100,7 +100,7 @@
                                 <a href="{{ asset('admin/orders/wating') }}"><i class="fa fa-edit fa-fw"></i>Не обработанные заказы</a>
                             </li>
                             <li>
-                                <a href="{{ asset('admin/orders/history') }}">История заказов</a>
+                                <a href="{{ asset('admin/orders') }}">История заказов</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

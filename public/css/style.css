@@ -125,6 +125,14 @@ nav{
 	background: #e3ebee;
 }
 
+.userProfile > li.active > a{
+	color: #9E0B0F;
+	background-color: #e3ebee;
+}
+
+.userProfile li a {
+    color: #e3ebee;
+}
 .item{
 	height: 100%;
 }
@@ -135,6 +143,10 @@ nav{
 
 }
 
+#checkout .form-control{
+	color: #9e0b0f;
+	background: #e3ebee;
+}
 
 .list-group {
     margin-bottom: 0px;
@@ -303,7 +315,7 @@ label{
 
 select{
 	background: #e3ebee;
-	margin: 10px 0px;
+	margin-bottom: 10px;
 }
 
 select > option{

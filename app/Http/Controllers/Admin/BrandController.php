@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Brand;
-// use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\BrandRequest;
 use Illuminate\Http\Request;
 
 
@@ -62,17 +62,18 @@ class BrandController extends Controller
         return view('admin.brands.edit', compact('brand'));
     }
 
-    public function update($id, /*ArticleRequest*/ $request)
+    public function update($id, BrandRequest $request)
     {
+		
         $data = $request->all();
-
-        if($request->file('img')){
-            $request->file('img')->move(public_path('img/brandsPhoto'), $request->file('img')->getClientOriginalName());
-            $data['img'] = $request->file('img')->getClientOriginalName();
+		
+        if($request->file('logo')){
+            $request->file('logo')->move(public_path('img/brands'), $request->file('logo')->getClientOriginalName());
+            $data['logo'] = $request->file('logo')->getClientOriginalName();
         }
-        $brand = Article::findOrFail($id);
+        $brand = Brand::findOrFail($id);
         $brand->update($data);
-        return redirect()->route('admin.brands')->with([
+        return redirect('admin/brands')->with([
             'flash_message' => 'Бренд обновлен!',
             'flash_message_important' => true
         ]);

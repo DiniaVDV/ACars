@@ -30,7 +30,7 @@
 						</div>
                     <td><strong>{{$car->alias}}</strong></td>
                     <td align="center"><strong>{{$car->brand}}</strong></td>
-                    <td align="center"><strong>{{$car->years}}</strong></td>
+                    <td align="center"><strong>{{!empty($car->year_began_id) ? $years[$car->year_began_id] : ''}} - {{!empty($car->year_ended_id) ? $years[$car->year_ended_id] : ''}} </strong></td>
                     <td align="center"><strong>{{$car->model}}</strong></td>
                     <td align="center"><strong>{{$car->engine}}</strong></td>
                     <td align="center"><strong>{{$car->modification}}</strong></td>

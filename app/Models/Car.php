@@ -6,6 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
+	public $timestamps = false;
+	
+	protected $fillable = [
+		'alias',
+		'brand',
+		'years',
+		'model',
+		'engine',
+		'modification',
+		'image',
+		'type_of_car_id',
+		'type_of_body_id',
+		'type_of_engine_id',
+		'wheel_drive_id',
+		'year_began_id',
+		'year_ended_id',
+	];
+	
 	public static function getCar($alias)
 	{
 		$car = self::where('alias', $alias)->first();
@@ -80,7 +98,7 @@ class Car extends Model
 	}
 	
 
-    private static function explodeYears($years)
+    public static function explodeYears($years)
     {
 		if(!is_array($years)){
 			$year[] = $years;

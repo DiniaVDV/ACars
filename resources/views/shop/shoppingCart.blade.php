@@ -15,7 +15,7 @@
 					<li class="list-group-item">
 						
 						<strong>{{$item->name}}   {{$item->options->itemCode}} {{$item->options->brand[0]->name}}</strong>
-						<span class="label label-success pull-right">{{$item->price}} грн.</span>
+						<span class="label label-success pull-right">{{$item->price * $item->qty}} грн.</span>
 						<span class="badge qtyItemOnCart">{{$item->qty}}</span>
 						<div class="btn-group pull-right">
 							<button type="button" class="btn btn-primary btn-xs dropdown-toogle" data-toggle="dropdown">Действие <span class="caret"></span></button>

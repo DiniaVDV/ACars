@@ -5,7 +5,8 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('logo', 'Фото:') !!}
+    {!! Form::label('logo', 'Псевдоним:') !!}
+    {!! Form::text('logo', null, ['class' => 'form-control']) !!}
 	{!! Form::file('logo',['class' => 'form-control'])!!}
 </div>
 

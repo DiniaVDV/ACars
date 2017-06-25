@@ -10,9 +10,9 @@
 
     <link href="{{ asset('css/stripe.css') }}" rel="stylesheet" type="text/css" >
 	    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
- 	
-	<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
-   <script src="{{ asset('js/jquery-3.1.1.min.js') }}" type="text/javascript"></script>	
+   <script src="{{ asset('js/jquery-3.1.1.min.js') }}" </script>	 	
+	<script src="{{ asset('js/bootstrap.min.js') }}"</script>
+
 
 
 

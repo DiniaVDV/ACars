@@ -45,14 +45,21 @@ Route::get('/shopping_cart', 'ItemsController@getCart');
 Route::get('checkout', 'ItemsController@getCheckout');
 Route::post('checkout', 'ItemsController@postCheckout');
 Route::get('clean_cart', 'ItemsController@cleanCart');
+Route::group(['prefix' => 'user/{name}'], function()
+{
+	Route::get('/', 'UserController@getProfile');
+	Route::get('/edit/own_info', 'UserController@editOwnInfo');
+	Route::post('/store', 'UserController@store');
+	Route::get('/order_history', 'UserController@orderHistory');
+	
+});
 
-Route::get('/user/profile', 'UserController@getProfile');
 
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
-	Route::get('/', 'AdminController@index');
+	Route::get('/', 'CategoryController@index');
 	Route::get('/categories', 'CategoryController@index')->name('admin.categories');
 	Route::get('/categories/change_parent_category', 'CategoryController@changeParentCategory');
 	Route::get('/categories/change_has_child', 'CategoryController@changeHasChild');
@@ -62,6 +69,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 	Route::resource('/cars', 'CarsController');
 	Route::resource('/brands', 'BrandController');
 	Route::resource('/items', 'ItemsController');
+	Route::resource('/orders', 'OrdersController');
+	Route::group(['prefix' => '/orders/{id}'], function()
+	{
+		Route::get('/details', 'OrdersController@details');
+		Route::get('/edit/{idItem}', 'OrdersController@editDetails');
+	});
+	
 });
 
 

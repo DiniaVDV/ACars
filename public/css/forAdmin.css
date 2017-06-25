@@ -39,14 +39,33 @@ td select{
 }
 
 nav{
-	background: #FFF;
+	background: #fff;
 }
-
+.navbar-header a{
+	color:#9E0B0F;
+}
 .fa-trash-o{
 	color: red;
 }
 
 .fa-pencil-square-o{
 	color:green;
+}
+
+.fa-eye{
+	color:black;
+}
+
+.page-header a{
+	color:#9E0B0F;
+}
+
+.pagination > .active > span{
+	background:#9E0B0F;
+	border-color:#9E0B0F;
+}
+
+.pagination > li > a{
+	color:#9E0B0F;
 }
 /*-----------------------------------------*/

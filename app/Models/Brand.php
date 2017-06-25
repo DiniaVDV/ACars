@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
+	protected $fillable = [
+		'name',
+		'logo',
+		'description',
+		'country',
+	];
    	 /**
      * The items that belongs to the brand.
      *

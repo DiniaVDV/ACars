@@ -6,6 +6,9 @@ use Gloudemans\Shoppingcart\Facades\Cart;;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Car;
+use App\Models\Order;
+use App\Models\DeliveryAddress;
+use App\Models\OrderDetail;
 use Session;
 
 class ItemsController extends Controller
@@ -77,9 +80,42 @@ class ItemsController extends Controller
             return view('shop.shoppingCart');
         }
         return view('shop.checkout', compact('cart'));
-
     }
 	
+	public function postCheckout(Request $request)
+    {	
+		$cart = Cart::content();		
+		if(!empty(Cart::count())){		
+			$data = $request->all();
+			$order = new Order();
+			$order->user_id = \Auth::user()->id;			
+			$order->type_of_delivery_id = $data['typeOfDelivery'];
+			$order->type_of_payment_id = $data['typeOfPayment'];
+			$order->comment = $data['comment'];
+			$order->total_price = ceil(Cart::total());
+			$order->save();			
+			foreach($cart as $cartItem){
+				$orderDetail = new OrderDetail();
+				$orderDetail->order_id = $order->id;
+				$orderDetail->item_id = $cartItem->id;
+				$orderDetail->price = $cartItem->price;
+				$orderDetail->qty = $cartItem->qty;
+				$orderDetail->save();	
+			}
+			if(empty($data['checkOldAddress'])){
+				$newAddress = new DeliveryAddress();
+				$newAddress->order_id = $order->id;
+				$newAddress->city = $data['city'];
+				$newAddress->street = $data['street'];
+				$newAddress->house_number = $data['house_number'];
+				$newAddress->flat_number = $data['flat_number'];
+				$newAddress->save();							
+			}
+			$this->cleanCart();
+			return view('shop.orderPlaced', compact('order'));
+		}
+		return redirect('/');
+    }
 	public function changeInstance(Request $request)
 	{
 		$data = $request->all();

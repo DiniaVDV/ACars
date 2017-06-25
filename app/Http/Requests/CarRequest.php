@@ -13,7 +13,7 @@ class CarRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,29 @@ class CarRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+			'alias' => 'required',
+			'brand' => 'required',
+			'model' => 'required',
+			'engine' => 'required',
+			'year_began_id' => 'required',
+			'year_ended_id' => 'required',
+        ];
+    }
+
+	/**
+     * Получить сообщения об ошибках для определённых правил проверки.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+			'alias.required' => 'Поле псевдоним пустое',
+			'brand.required' => 'Поле марка пустое',
+			'model.required' => 'Поле модель пустое',
+			'engine.required' => 'Поле объем двигателя пустое',
+			'year_began_id.required' => 'Выберите начало выпуска',
+			'year_ended_id.required' => 'Выберите конец выпуска',
         ];
     }
 }

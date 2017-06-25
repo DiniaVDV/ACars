@@ -14,6 +14,7 @@ $(document).ready(function() {
     $(".js-example-basic-single").select2();
 });
 
+
 /**************Checked comments***********************************/
 
 $(".status").change(function() {

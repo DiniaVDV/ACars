@@ -38,9 +38,20 @@
 								<i class="fa fa-user" aria-hidden="true"></i>{{ Auth::user()->name }} <span class="caret"></span>
 							</a>	
 							<ul class="dropdown-menu" role="menu">
+							
 							@foreach($navbar as $element)
-										   @if($element->dropdown_menu == 'true')
-											   <li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+										   @if($element->dropdown_menu == 'true' && $element->for_admin == 'false')
+											   @if($element->title == 'Личный кабинет')
+													<li><a href="{{$element->alias}}/{{Auth::user()->name}}">{{$element->title}}</a></li>
+												@else
+													<li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+												@endif
+											@endif
+											
+											@if(Auth::user()->isThe('admin'))
+												@if($element->for_admin == 'true')
+													<li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+												@endif
 											@endif
 							@endforeach
 								<li role="separator" class="divider"></li>
