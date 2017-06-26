@@ -77,9 +77,11 @@ $(function(){
 		if($(this).attr('selected')){
 			if(!$(this).attr('disabled')){
 				var atrId = $(this).parent().parent().attr('class');
-				var id = (atrId.substr(9, 5));					
-				$('#id_' + id).prop('checked', 'checked');
-				$('.parentId_' + id).prop('disabled', false);
+				if(atrId){
+					var id = (atrId.substr(9, 5));					
+					$('#id_' + id).prop('checked', 'checked');
+					$('.parentId_' + id).prop('disabled', false);
+				}
 			}
 		}
 		
@@ -137,4 +139,138 @@ $('.parent_id').change(function(){
 
 });
 /********************************************************/
+
+$('.type_of_delivery_id').change(function(){
+	var type_of_delivery_id = $(this).prop('value');
+	var order_id = $(this).parent().parent().prop('class');
+	$.ajax({
+		type:"GET",
+		url:"{{asset('/admin/orders/change_type_of_delivery')}}",
+		data:{type_of_delivery_id: type_of_delivery_id,
+			  order_id: order_id,
+		},
+		success: function(data){
+			console.log(data);
+		},
+		error: function(data){
+			console.log(data);
+		},
+	});
+	
+});
+$('.type_of_payment_id').change(function(){
+	var type_of_payment_id = $(this).prop('value');
+	var order_id = $(this).parent().parent().prop('class');
+	$.ajax({
+		type:"GET",
+		url:"{{asset('/admin/orders/change_type_of_payment')}}",
+		data:{type_of_payment_id: type_of_payment_id,
+			  order_id: order_id,
+		},
+		success: function(data){
+			console.log(data);
+		},
+		error: function(data){
+			console.log(data);
+		},
+	});
+});
+$('.status_id').change(function(){
+	var status_id = $(this).prop('value');
+	var order_id = $(this).parent().parent().prop('class');
+	$.ajax({
+		type:"GET",
+		url:"{{asset('/admin/orders/change_status')}}",
+		data:{status_id: status_id,
+			  order_id: order_id,
+		},
+		success: function(data){
+			if(data){
+				location.reload();
+			}
+		},
+		error: function(data){
+			console.log(data);
+		},
+	});
+});
+
+$('.qty').change(function(){
+	var qty = parseInt($(this).prop('value'));
+	if(typeof qty === 'number'){
+		var item_id = $(this).parent().parent().parent().prop('class')	
+		var price = $('.' + item_id).children('.price').children().prop('innerHTML');
+		var sumOld = $('.' + item_id).children('.sum').children().prop('innerHTML'); 
+		console.log(sumOld);
+		var sum = qty * price;
+		var order_id = $('.page-header').prop('id');
+		$('.' + item_id).children('.sum').children().prop('innerHTML', sum);
+		var totalPrice = $('#totalPrice').children().prop('innerHTML') - sumOld + sum ;
+		$('#totalPrice').children().prop('innerHTML', totalPrice)
+		$.ajax({
+			type:"POST",
+			url:"{{url()->current()}}/" + item_id,
+			data:{
+				qty: qty,
+				total_price: totalPrice,
+				},
+			success: function(data){
+				console.log(data);
+			},
+			error: function(data){
+				console.log(data);
+			},		
+		});
+	}else{
+		alert("Введите число!");
+	}
+
+
+});
+
+/***************Change user role********************************************/
+
+$('.role').change(function(){
+    var userRole = $(this).attr('value');
+    console.log(userRole);
+    if(this.checked){
+        $.ajax({
+            type:"GET",
+            url: '{{asset('/admin_panel/changeRole')}}',
+            data:{
+                userRole: userRole,
+                status: true,
+            },
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }else{
+        $.ajax({
+            type: "GET",
+            url: '{{asset('admin_panel/changeRole')}}',
+            data:{
+                userRole: userRole,
+                status: false,
+            },
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+});
+
+/***************************************************************************/
+
+/*******For select2******************************************************/
+$('#role_list').select2({
+    placeholder: 'Выберите роль',
+});
+/***************************************************************************/
 </script>

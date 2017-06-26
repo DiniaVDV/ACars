@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Role;
+use App\Models\User;
+use App\Models\Role;
 use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
@@ -34,8 +34,8 @@ class UserController extends Controller
     {
         $data = $request->all();
         $user->update($data);
-        $this->syncTags($user, $request->input('role_list'));
-        return redirect('admin_panel/users')->with([
+        $this->syncRoles($user, $request->input('role_list'));
+        return redirect('admin/users')->with([
             'flash_message' => 'Данные обновленны!',
             'flash_message_important' => true
         ]);

@@ -14,4 +14,9 @@ class Order extends Model
 		'comments',		
 	];
 	
+	public function items()
+	{
+		return $this->belongsToMany('App\Models\OrderDetail');
+	}
+	
 }

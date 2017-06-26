@@ -1,10 +1,10 @@
 @extends('admin.app')
 @section('content')
 
-<h3>Редактирование данных о {{$brand->name}}:</h3><br/>
+<h3>Редактирование заказа:</h3><br/>
 <br/>
-    {!! Form::model($brand, ['method' => 'PATCH', 'action' => ['Admin\BrandController@update', $brand->id]]) !!}
-		@include('admin.brands.form', ['submitButtonText' => 'Обновить бренд'])
+    {!! Form::model($order, ['method' => 'PATCH', 'action' => ['Admin\OrdersController@update', $order->id]]) !!}
+		@include('admin.orders.form', ['submitButtonText' => 'Обновить заказ'])
     {!! Form::close() !!}
 	@include('errors.list')
 @endsection

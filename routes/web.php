@@ -60,22 +60,52 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
-	Route::get('/', 'CategoryController@index');
-	Route::get('/categories', 'CategoryController@index')->name('admin.categories');
-	Route::get('/categories/change_parent_category', 'CategoryController@changeParentCategory');
-	Route::get('/categories/change_has_child', 'CategoryController@changeHasChild');
-	Route::resource('/category', 'CategoryController');
-	Route::get('category/{id}/delete', 'CategoryController@destroy');
-	
-	Route::resource('/cars', 'CarsController');
-	Route::resource('/brands', 'BrandController');
-	Route::resource('/items', 'ItemsController');
-	Route::resource('/orders', 'OrdersController');
-	Route::group(['prefix' => '/orders/{id}'], function()
-	{
-		Route::get('/details', 'OrdersController@details');
-		Route::get('/edit/{idItem}', 'OrdersController@editDetails');
+	 Route::group(['middleware' => 'admin'], function()
+    {
+		Route::get('/', 'CategoryController@index');
+		Route::get('/categories', 'CategoryController@index')->name('admin.categories');
+		Route::get('/categories/change_parent_category', 'CategoryController@changeParentCategory');
+		Route::get('/categories/change_has_child', 'CategoryController@changeHasChild');
+		Route::resource('/category', 'CategoryController');
+		Route::get('category/{id}/delete', 'CategoryController@destroy');
+		
+		Route::resource('/cars', 'CarsController');
+		Route::resource('/brands', 'BrandController');
+		Route::resource('/items', 'ItemsController');
+		Route::get('/orders', 'OrdersController@index');
+		Route::get('/orders/change_type_of_delivery', 'OrdersController@changeTypeOfDelivery');
+		Route::get('/orders/change_type_of_payment', 'OrdersController@changeTypeOfPayment');
+		Route::get('/orders/change_status', 'OrdersController@changeStatus');
+		Route::get('/orders/{id}/delete', 'OrdersController@destroy');
+		Route::get('/orders/{id}/edit', 'OrdersController@edit');
+		
+		Route::get('/orders/waiting', 'OrdersController@waiting');
+		Route::group(['prefix' => '/orders/{id}'], function()
+		{
+			Route::get('/details', 'OrdersController@details');
+			Route::get('/details/change', 'OrdersController@changeDetails');
+			Route::post('/details/change/{idItem}', 'OrdersController@changeQtyItem');
+			Route::get('/edit/{idItem}', 'OrdersController@editDetails');
+		});
+		Route::resource('/users', 'UserController');
+        Route::get('/users/{id}/delete', 'UserController@destroy');
+        Route::get('/changeRole', 'UserController@changeRole');
 	});
+	
+	Route::group(['middleware' => 'moderator'], function()
+    {
+		Route::get('/', 'CategoryController@index');
+		Route::get('/categories', 'CategoryController@index')->name('admin.categories');
+		Route::get('/cars', 'CarsController@index');
+		Route::get('/brands', 'BrandController@index');
+		Route::get('/items', 'ItemsController@index');
+		Route::get('/orders', 'OrdersController@index');	
+		Route::group(['prefix' => '/orders/{id}'], function()
+		{
+			Route::get('/details', 'OrdersController@details');
+		});		
+	});
+
 	
 });
 

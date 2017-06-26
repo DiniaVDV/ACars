@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Item;
 use App\Models\Brand;
 use App\Models\OrderDetail;
+use App\Models\orderStatus;
 use App\Models\User;
 use App\Models\TypeOfDelivery;
 use App\Models\TypeOfPayment;
@@ -17,26 +18,23 @@ class OrdersController extends Controller
 {
     public function index()
     {
-        $orders = Order::paginate(10);
+        $orders = Order::where('status_id', 3)->paginate(10);
 		$users = User::pluck('name' , 'id');
 		$typeOfDelivery = TypeOfDelivery::pluck('title' , 'id');
 		$typeOfPayment = TypeOfPayment::pluck('title' , 'id');
         return view('admin.orders.show', compact('orders', 'users', 'typeOfDelivery', 'typeOfPayment'));
     }
 	
-	public function details($id)
+	public function waiting()
 	{
-		$orderDetails = OrderDetail::where('order_id', $id)->get();
-
-		foreach($orderDetails as $itemDetail){
-			$item = Item::findOrFail($itemDetail->id);
-			$brand = Brand::findOrFail($item->brand_id);
-			$nameItems[$itemDetail->id] = $item->name . ' ' . $item->code . ' ' . $brand->name;
-		}
-		$createdAt = Order::findOrFail($id)->value('created_at');
-		return view('admin.orders.details', compact('orderDetails', 'createdAt', 'nameItems'));
+		$orders = Order::where('status_id', 1)->orWhere('status_id', 2)->paginate(10);
+		$users = User::pluck('name' , 'id');
+		$typeOfDelivery = TypeOfDelivery::pluck('title' , 'id');
+		$typeOfPayment = TypeOfPayment::pluck('title' , 'id');
+		$orderStatus = OrderStatus::pluck('title' , 'id');
+        return view('admin.orders.showWaitingOrders', compact('orders', 'users', 'typeOfDelivery', 'typeOfPayment', 'orderStatus'));
 	}
-
+	
 	public function editDetails($order_id, $idItem)
 	{
 		dd($idItem);
@@ -44,10 +42,9 @@ class OrdersController extends Controller
 	}
     public function edit($id)
     {
-        $Order = Order::findOrFail($id);
-		$orders = Order::pluck( 'title', 'id');
-		unset($orders[$Order->id]);
-        return view('admin.orders.edit', compact('Order', 'orders'));
+        $order = Order::findOrFail($id);
+
+        return view('admin.orders.edit', compact('order', 'orders'));
     }
 
     public function update($id, OrderRequest $request)
@@ -83,5 +80,73 @@ class OrdersController extends Controller
             'flash_message_important' => true
         ]);
     }
-
+	
+	public function changeDetails($id)
+	{
+		$orderDetails = OrderDetail::where('order_id', $id)->get();
+		$order = Order::findOrFail($id);
+		$orderSum = $order->total_price;
+		$nameItems = array();
+		foreach($orderDetails as $itemDetail){
+			$item = Item::findOrFail($itemDetail->item_id);
+			$brand = Brand::findOrFail($item->brand_id);
+			$nameItems[$itemDetail->id] = $item->name . ' ' . $item->code . ' ' . $brand->name;
+		}
+		$createdAt = Order::findOrFail($id)->value('created_at');		
+		return view('admin.orders.changeDetails', compact('orderDetails', 'createdAt', 'nameItems', 'orderSum'));
+	}
+		
+	public function details($id)
+	{
+		$orderDetails = OrderDetail::where('order_id', $id)->get();
+		$nameItems = array();
+		foreach($orderDetails as $itemDetail){
+			$item = Item::findOrFail($itemDetail->item_id);
+			$brand = Brand::findOrFail($item->brand_id);
+			$nameItems[$itemDetail->id] = $item->name . ' ' . $item->code . ' ' . $brand->name;
+		}
+		$createdAt = Order::findOrFail($id)->value('created_at');
+		return view('admin.orders.details', compact('orderDetails', 'createdAt', 'nameItems'));
+	}
+	
+	public function changeTypeOfDelivery(Request $request)
+	{
+		$order = Order::findOrFail($request->get('order_id'));
+		$order->type_of_delivery_id = $request->get('type_of_delivery_id');
+		$order->update();
+	}	
+	
+	public function changeTypeOfPayment(Request $request)
+	{
+		$order = Order::findOrFail($request->get('order_id'));
+		$order->type_of_payment_id = $request->get('type_of_payment_id');
+		$order->update();
+	}
+	
+	public function changeStatus(Request $request)
+	{
+		$status_id = $request->get('status_id');
+		$order = Order::findOrFail($request->get('order_id'));
+		$order->status_id = $status_id;
+		$order->update();		
+		if($status_id !=3 ){
+			return 0;
+		}else{
+			return 1;
+		}
+	}
+	
+	public function changeQtyItem($order_id, $item_id, Request $request)
+	{
+		$order = Order::findOrFail($order_id);
+		$order->total_price = $request->get('total_price');
+		$order->update();
+		$item = OrderDetail::where([
+			['order_id', $order_id],
+			['item_id', $item_id],
+			])->first();
+		$item->qty = $request->get('qty');
+		$item->update();
+		
+	}
 }

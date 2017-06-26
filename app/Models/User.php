@@ -57,6 +57,18 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Order');
     }
+	    
+		
+	/**
+     * Get a role id s associated with current user
+     *
+     * @return array
+     */
+
+    public function getRoleListAttribute()
+    {
+        return $this->roles->pluck('id')->toArray();
+    }
 	
 	 /**
      * @param $roleName

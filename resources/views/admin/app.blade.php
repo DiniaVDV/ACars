@@ -22,11 +22,17 @@
     <link href="{{ asset('css/style.css') }}"  rel="stylesheet">
     <link href="{{ asset('css/forAdmin.css') }}"  rel="stylesheet">
 	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="SHORTCUT ICON" href="{{ asset('logo.png') }}" type="image/png">
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+		$.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     </script>
     <style>
         body{

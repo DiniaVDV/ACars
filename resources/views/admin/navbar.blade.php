@@ -97,7 +97,7 @@
                         <a href="#"><i class="fa fa-dashboard fa-fw"></i>Заказы<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ asset('admin/orders/wating') }}"><i class="fa fa-edit fa-fw"></i>Не обработанные заказы</a>
+                                <a href="{{ asset('admin/orders/waiting') }}"><i class="fa fa-edit fa-fw"></i>Не обработанные заказы</a>
                             </li>
                             <li>
                                 <a href="{{ asset('admin/orders') }}">История заказов</a>

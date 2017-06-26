@@ -68,4 +68,10 @@ nav{
 .pagination > li > a{
 	color:#9E0B0F;
 }
+
+td .qty{
+	width: 30px;
+	text-align: right;
+	padding-right: 5px;
+}
 /*-----------------------------------------*/

@@ -34,10 +34,10 @@
 						</li>
 					@if(Auth::user())
 						<li class="dropdown pull-right">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<i class="fa fa-user" aria-hidden="true"></i>{{ Auth::user()->name }} <span class="caret"></span>
 							</a>	
-							<ul class="dropdown-menu" role="menu">
+							<ul class="dropdown-menu">
 							
 							@foreach($navbar as $element)
 										   @if($element->dropdown_menu == 'true' && $element->for_admin == 'false')

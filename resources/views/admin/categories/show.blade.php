@@ -37,7 +37,7 @@
 							</label>
 						</div>
 						<fieldset class="parentId_1_{{$category->id}}" disabled>	
-								<?php				$categoriesParentFor = clone $categoriesParent;
+								<?php $categoriesParentFor = clone $categoriesParent;
 								unset($categoriesParentFor[$category->id]);
 								?>
 								{!! Form::select('parent_id', $categoriesParentFor, !empty($category->parent_id) ? $category->parent_id : null, ['class' => 'form-control parent_id col-md-11', 'placeholder' => 'Выберите категорию']) !!}				

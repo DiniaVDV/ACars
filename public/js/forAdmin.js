@@ -24,6 +24,8 @@ $('.has_child').change(function(){
 });
 
 /**************************************************************/
+
+
 /*************Check chosen parent category*********************/
 $(function(){
 	
@@ -31,9 +33,11 @@ $(function(){
 		if($(this).attr('selected')){
 			if(!$(this).attr('disabled')){
 				var atrId = $(this).parent().parent().attr('class');
-				var id = (atrId.substr(9, 5));					
-				$('#id_' + id).prop('checked', 'checked');
-				$('.parentId_' + id).prop('disabled', false);
+				if(atrId){
+					var id = (atrId.substr(9, 5));					
+					$('#id_' + id).prop('checked', 'checked');
+					$('.parentId_' + id).prop('disabled', false);
+				}
 			}
 		}
 		
