@@ -2,8 +2,78 @@
 @section('content')		
 	<h3>Личные данные</h3>
 	@if(!empty($aboutUser))
-		<table class="table">
-			
+		@include('admin.partials.flash')
+		<table class="table table-striped infoUser">
+			<tbody>
+                <tr>
+                   <td>
+						<strong>Имя:</strong>
+				   </td>                   
+				   <td>
+						<strong>{{$aboutUser->first_name}}</strong>
+				   </td>
+				</tr>
+			</tbody>			
+			<tbody>
+                <tr>
+                   <td>
+						<strong>Фамилия:</strong>
+				   </td>                   
+				   <td>
+						<strong>{{$aboutUser->second_name}}</strong>
+				   </td>
+				</tr>
+			</tbody>
+			<tbody>
+                <tr>
+                   <td>
+						<strong>Номер телефона:</strong>
+				   </td>
+				   <td>
+						<strong>{{$aboutUser->phone_number}}</strong>
+				   </td>
+				</tr>
+			</tbody>
+			<tbody>
+                <tr>
+                   <td>
+						<strong>Город:</strong>
+				   </td>
+				   <td>
+						<strong>{{$aboutUser->city}}</strong>
+				   </td>
+				</tr>
+			</tbody>
+			<tbody>
+                <tr>
+                   <td>
+						<strong>Улица:</strong>
+				   </td>
+				   <td>
+						<strong>{{$aboutUser->street}}</strong>
+				   </td>
+				</tr>
+			</tbody>
+			<tbody>
+                <tr>
+                   <td>
+						<strong>Номер дома:</strong>
+				   </td>
+				   <td>
+						<strong>{{$aboutUser->house_number}}</strong>
+				   </td>
+				</tr>
+			</tbody>
+			<tbody>
+                <tr>
+                   <td>
+						<strong>Номер квартиры:</strong>
+				   </td>
+				   <td>
+						<strong>{{$aboutUser->flat_number}}</strong>
+				   </td>
+				</tr>
+			</tbody>
 		</table>
 	@else
 		@include('user.ownInfoForm')

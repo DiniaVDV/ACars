@@ -29,12 +29,15 @@ Route::get('/list_of_items', 'ItemsController@listOfItems');
 Route::get('/get_years', 'CarsController@getYears');
 
 Route::get('/get_models', 'CarsController@getModels');
+Route::post('/addComment', 'CommentsController@addComment');
+Route::get('/countLikes', 'CommentsController@countLikes');
 
 Route::get('/get_engines', 'CarsController@getEngines');
 Route::get('/cars/{alias}', 'ItemsController@getItems');
 Route::get('/cars/{alias}/about', 'CarsController@aboutCar');
 Route::get('/cars/{alias}/categories/{category_name}', 'CategoriesController@select');
-Route::get('/cars/{alias}/select/{item_name}', 'ItemsController@selectItem');
+Route::get('/cars/{alias}/select/{item_name}', 'ItemsController@selectItemCar');
+Route::get('/select/{item_name}', 'ItemsController@selectItem');
 
 Route::get('/add_to_cart/{id}', 'ItemsController@addToCart');
 Route::get('/delete_from_cart/{id}', 'ItemsController@deleteFromCart');
@@ -48,10 +51,11 @@ Route::post('checkout', 'ItemsController@postCheckout');
 Route::get('clean_cart', 'ItemsController@cleanCart');
 Route::group(['prefix' => 'user/{name}'], function()
 {
-	Route::get('/', 'UserController@getProfile');
+	Route::get('/', 'UserController@getProfile')->name('user');
 	Route::get('/edit/own_info', 'UserController@editOwnInfo');
 	Route::post('/store', 'UserController@store');
 	Route::get('/order_history', 'UserController@orderHistory');
+	Route::get('/my_comments', 'UserController@myComments');
 	
 });
 

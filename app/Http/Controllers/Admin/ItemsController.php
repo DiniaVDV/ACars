@@ -26,7 +26,11 @@ class ItemsController extends Controller
 
     public function store(ItemsRequest $request)
     {
-        Item::create($request->all());
+		$item = $request->all();
+		if(empty($item['image'])){
+			$item['image'] = 'no_picture.gif';
+		}
+        Item::create($item);
         return redirect('admin/items')->with([
             'flash_message' => 'Товар добавлен!',
             'flash_message_important' => true

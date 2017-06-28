@@ -9,10 +9,6 @@
 		<input type="text" id="second_name" name="second_name" class="form-control" value=""/>
 	</div>
 	<div class="form-group">
-		<label for="email">Email:</label>
-		<input type="text" id="email" name="email" class="form-control" value=""/>
-	</div>
-	<div class="form-group">
 		<label for="phone_number">Номер телефона:</label>
 		<input type="text" id="phone_number" name="phone_number" class="form-control" value=""/>
 	</div>	

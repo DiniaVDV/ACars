@@ -37,7 +37,13 @@ class carsController extends Controller
 
     public function store(CarRequest $request)
     {
-        Car::create($request->all());
+		$car = $request->all();
+		$year_began = Year::findOrFail($car['year_began_id']);
+		$year_ended = Year::findOrFail($car['year_ended_id']);
+		$car['years'] = $year_began->year . '_' . $year_ended->year;
+	
+		Car::create($car);
+		
         return redirect('admin/cars')->with([
             'flash_message' => 'Автомобиль добавлен!',
             'flash_message_important' => true

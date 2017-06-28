@@ -11,17 +11,31 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
     protected $fillable = [
-        'title',
         'message',
+        'status',
+        'like'
     ];
 
     /**
-     * A comment is owned by user.
+     * @var array
+     */
+    protected $dates = ['published_at'];
+
+    /**
+     * An comment is owned by item
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function item()
+    {
+        return $this->belongsTo('App\Models\Item');
+    }
+
+    /**
+     * An comment is owned by user
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -29,4 +43,12 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+
+    public static function qtyCheckCommetns()
+    {
+        $qtyComments = Comment::where('status', 'check')->count();
+        return $qtyComments;
+    }
+
 }

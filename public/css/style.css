@@ -129,6 +129,10 @@ nav{
 	color: #9E0B0F;
 	background-color: #e3ebee;
 }
+.userProfile > li.active > a:hover{
+	color: #e3ebee;
+	background-color: #9E0B0F;	
+}
 
 .userProfile li a {
     color: #e3ebee;
@@ -211,10 +215,6 @@ nav{
 	margin: 5px 0px 5px 0px;
 }
 
-.itemBodyOnList{
-	
-}
-
 .itemLogoOnList{
 	display: block;
 	margin: 0 auto;
@@ -236,14 +236,26 @@ nav{
 	left: 53%;
 }
 
-.buyOnList{
+.buyOn{
 	margin: 2px auto;
 	background: #9e0b0f;
-	position:absolute;
-	bottom: 5px;
-	left: 53%;
 }
 
+.analogues{
+	background: none;
+	border: none;
+}
+
+.analogues > a{
+	color: #9e0b0f;
+}
+.analogues > a:hover{
+	color: #e3ebee;
+}
+
+.nav-tabs > li.active > a{
+	color: #9e0b0f;
+}
 .shopCart{
 	color: #9e0b0f;
 }
@@ -567,3 +579,18 @@ select:focus{
 .Content a{
 	color: #e3ebee;
 }
+
+.itemPicture{
+	width: 200px;
+	height: 200px;
+}
+
+.infoUser  > tbody > tr:nth-of-type(2n+1){
+	background-color:#869290;
+}
+
+.tab-pane > a{
+	color:#9e0b0f;
+	margin-bottom: 10px;
+}
+

@@ -122,17 +122,6 @@ class Car extends Model
         return $arrayOfYears;
     }
 
-
-    /**
-     * The items that belongs to the car.
-     *
-     * @return 
-     */
-
-    // public function items()
-    // {
-        // return $this->belongsToMany('App\Models\Item');
-    // }
 	
 		 /**
      * The cars that belongs to the item.

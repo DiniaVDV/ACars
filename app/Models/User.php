@@ -83,4 +83,19 @@ class User extends Authenticatable
 		}
         return false;
     }
+
+    /**
+     * @param $comments
+     * @return array
+     */
+    public static function usersForComments($comments)
+    {
+        $users = array();
+        foreach($comments as $comment){
+            $user = self::where('id', $comment->user_id)->get();
+            $users[$comment->id] = $user;
+        }
+
+        return $users;
+    }
 }

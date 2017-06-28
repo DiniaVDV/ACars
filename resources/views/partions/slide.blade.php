@@ -11,7 +11,7 @@
                         <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
-									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
@@ -28,7 +28,7 @@
 							<div class="col-sm-6 hidden-md hidden-lg itemBasic">
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
-										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
@@ -53,7 +53,7 @@
                         <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
-									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
@@ -70,7 +70,7 @@
 							<div class="col-sm-6 hidden-md hidden-lg itemBasic">
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
-										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
@@ -95,7 +95,7 @@
                         <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
-									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
@@ -112,7 +112,7 @@
 							<div class="col-sm-6 hidden-md hidden-lg itemBasic">
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
-										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
@@ -154,7 +154,7 @@
                         <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
-									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
@@ -171,7 +171,7 @@
 							<div class="col-sm-6 hidden-md hidden-lg itemBasic">
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
-										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
@@ -196,7 +196,7 @@
                         <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
-									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
@@ -213,7 +213,7 @@
 							<div class="col-sm-6 hidden-md hidden-lg itemBasic">
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
-										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>
@@ -239,7 +239,7 @@
                         <div class="hidden-sm col-md-4 col-lg-4 itemBasic">
 							<div class="panel panel-default oneItem">								
 								<div class="panel-heading itemHead">
-									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+									<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 										<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 										<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 									</a>
@@ -256,7 +256,7 @@
 							<div class="col-sm-6 hidden-md hidden-lg itemBasic">
 								<div class="panel panel-default oneItem">								
 									<div class="panel-heading itemHead">
-										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->name}}_{{$itemsBrans['items'][$i]->code}}">
+										<a class="aboutItem" href="{{asset('/select')}}/{{$itemsBrans['items'][$i]->alias}}_{{$itemsBrans['items'][$i]->code}}">
 											<h4 class="title">{{$itemsBrans['items'][$i]->name}} {{$itemsBrans['items'][$i]->code}} {{$itemsBrans['brands'][$itemsBrans['items'][$i]->id][0]->name}}</h4>
 											<img class="itemLogo" src="{{ asset('img/items')}}/{{$itemsBrans['items'][$i]->img}} ">
 										</a>

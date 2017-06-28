@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;;
 use Illuminate\Http\Request;
 use App\Models\Item;
@@ -33,11 +35,58 @@ class ItemsController extends Controller
 
 
 	
-	public function selectItem($car, $item_name_code, Request $request)		
+	public function selectItemCar($carAlias, $item_alias_code, Request $request)
 	{
-		
-		$item = $request->session()->all();
-		return view('shop.aboutItem', compact('item'));
+
+        $item = Item::getItemsByAliasCode($item_alias_code);
+
+        $item->description = explode('|', $item->description);
+        $brand = Item::find($item->id)->brand()->first();
+        $cars = Item::find($item->id)->cars()->get();
+        $items = Car::where('alias', $carAlias)->firstOrFail()->items()->get();
+        $categoryIn = Item::find($item->id)->categories()->get();
+        $listOfItems = array();
+        if(!empty($items)){
+            foreach ($items as $itemFromList){
+                if($itemFromList->id != $item->id){
+                    $categoryFromList = $itemFromList->categories()->get();
+                    foreach ($categoryFromList as $category){
+                        $flag = $this->checkCategoryId($categoryIn, $category);
+                        if($flag){
+                            $brandForListOfItem = Item::findOrFail($itemFromList->id)->brand()->get();
+
+                            $listOfItems[$brandForListOfItem[0]->name] = $itemFromList;
+                            break;
+                        }
+                    }
+                }
+
+            }
+        }
+        return view('shop.aboutItem', compact('item', 'brand', 'cars', 'listOfItems'));
+	}
+
+	public function checkCategoryId($categoryIn, $categoryTry){
+            foreach ($categoryIn as $categoryInOne) {
+                if($categoryInOne->id == $categoryTry->id){
+                    return true;
+                }else{
+                    return false;
+                }
+	        }
+    }
+
+	public function selectItem($item_alias_code, Request $request)		
+	{
+
+		$item = Item::getItemsByAliasCode($item_alias_code);
+        $comments = $item->comments()->orderBy('created_at', "desc")->paginate(5);
+        $users = User::usersForComments($comments);
+        $item->description = explode('|', $item->description);
+		$brand = Item::find($item->id)->brand()->first();
+		$cars = Item::find($item->id)->cars()->get();
+
+		return view('shop.aboutItem', compact('item', 'brand', 'cars', 'comments', 'users'));
 		
 	}
 
@@ -128,6 +177,4 @@ class ItemsController extends Controller
 	{
 		Cart::destroy();
 	}
-	
-	
 }

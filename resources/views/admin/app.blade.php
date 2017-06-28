@@ -45,7 +45,7 @@
             @include('admin.navbar')
             <div id="page-wrapper">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12 col-lg-12">
                         @yield('content')
 
                     </div>

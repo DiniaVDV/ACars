@@ -20,9 +20,14 @@ class Item extends Model implements Buyable
         return $this->price;
     }
 
-	public function getItems()
+	public static function getItemsByAliasCode($item_alias_code)
 	{
-		
+		$alias_code = explode('_', $item_alias_code);
+		$item = self::where([
+				['alias', $alias_code[0]],
+				['code', $alias_code[1]],
+		])->firstOrFail();
+		return $item;
 	}
 	
 	public static function getRandomItems()
@@ -40,7 +45,7 @@ class Item extends Model implements Buyable
     }
 	
    	 /**
-     * The brands that belongs to the item.
+     * The brand that belongs to the item.
      *
      * @return 
      */
@@ -49,18 +54,7 @@ class Item extends Model implements Buyable
     {
         return $this->belongsTo('App\Models\Brand');
     }
-	
-	 /**
-     * The cars that belongs to the item.
-     *
-     * @return 
-     */
 
-    // public function brands()
-    // {
-        // return $this->belongsToMany('App\Models\Brand', 'brand_item', 'brand_id', 'item_id');
-    // }
-	
    /**
      * Get the cars associated with the given item
 	 *
@@ -82,5 +76,15 @@ class Item extends Model implements Buyable
 	{
 		return $this->cars->pluck('id')->toArray();
 	}
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\Models\Category');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 	
 }
