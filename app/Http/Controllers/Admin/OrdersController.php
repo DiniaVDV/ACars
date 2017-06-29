@@ -37,6 +37,7 @@ class OrdersController extends Controller
 	
 	public function editDetails($order_id, $idItem)
 	{
+
 		dd($idItem);
 		return view('admin.order.detailItem');
 	}
@@ -57,21 +58,22 @@ class OrdersController extends Controller
         ]);
     }
 
-    public function create()
+    public function deleteItem($order_id, $idItem)
     {
-		$orders = Order::pluck( 'title', 'id');
-        return view('admin.orders.create', compact('orders'));
-    }
-
-    public function store(OrderRequest $request)
-    {
-        Order::create($request->all());
-        return redirect()->route('admin.orders')->with([
-            'flash_message' => 'Категория была довавлена!',
+        $orderDet = OrderDetail::where([
+                        ['order_id', $order_id],
+                        ['item_id', $idItem],
+                    ])->first();
+        $order = Order::findOrFail($order_id);
+        $order->total_price -= $orderDet->qty * $orderDet->price;
+        $order->save();
+        $orderDet->delete();
+        return redirect("admin/orders/$order_id/details/change")->with([
+            'flash_message' => 'Товар удален!',
             'flash_message_important' => true
         ]);
-    }
 
+    }
     public function destroy($id)
     {
         Order::findOrFail($id)->delete();
@@ -86,16 +88,50 @@ class OrdersController extends Controller
 		$orderDetails = OrderDetail::where('order_id', $id)->get();
 		$order = Order::findOrFail($id);
 		$orderSum = $order->total_price;
-		$nameItems = array();
-		foreach($orderDetails as $itemDetail){
-			$item = Item::findOrFail($itemDetail->item_id);
-			$brand = Brand::findOrFail($item->brand_id);
-			$nameItems[$itemDetail->id] = $item->name . ' ' . $item->code . ' ' . $brand->name;
-		}
+
+		$nameItems = $this->getListOfItem($orderDetails);
+
 		$createdAt = Order::findOrFail($id)->value('created_at');		
 		return view('admin.orders.changeDetails', compact('orderDetails', 'createdAt', 'nameItems', 'orderSum'));
 	}
-		
+
+	public function getListOfItem($items)
+    {
+        $nameItems = array();
+        foreach($items as $itemIn){
+            $item = Item::findOrFail(!empty($itemIn->item_id) ? $itemIn->item_id : $itemIn->id);
+            $brand = Brand::findOrFail($item->brand_id);
+            $nameItems[$item->id] = $item->name . ' ' . $item->code . ' ' . $brand->name;
+        }
+        return $nameItems;
+    }
+
+    public function getAddItemToOrder($orderId)
+    {
+
+        $items = Item::all();
+        $nameItems = $this->getListOfItem($items);
+
+        return view('admin.orders.addItemToOrder', compact('nameItems', 'orderId'));
+    }
+
+    public function postAddItemToOrder($orderId, Request $request)
+    {
+
+        $itemAdd['item_id'] = $request->input('item');
+        $itemAdd['order_id'] = $orderId;
+        $itemAdd['qty'] = $request->input('qty');
+        $itemAdd['price'] = Item::findOrFail($itemAdd['item_id'])->value('price');
+        OrderDetail::create($itemAdd);
+
+        $order = Order::findOrFail($orderId);
+        $order->total_price += $itemAdd['qty'] * $itemAdd['price'];
+        $order->save();
+        return redirect("admin/orders/$orderId/details/change")->with([
+            'flash_message' => 'Товар добавлен!',
+            'flash_message_important' => true
+        ]);
+    }
 	public function details($id)
 	{
 	    $allData = $this->getDetails($id);

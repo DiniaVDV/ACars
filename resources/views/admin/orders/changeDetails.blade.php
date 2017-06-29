@@ -16,8 +16,8 @@
             </thead>
     @foreach($orderDetails as $item)
             <tbody>
-                <tr class="{{$item->item_id}}"> 
-                    <td><strong>{{$nameItems[$item->id]}}</strong></td>
+                <tr class="{{$item->item_id}}">
+                    <td><strong>{{$nameItems[$item->item_id]}}</strong></td>
                     <td align="center" class="price"><strong>{{$item->price}}</strong></td>   
 					<td align="center">
 						<strong>
@@ -26,8 +26,7 @@
 					</td>                   
 					<td align="center" class="sum"><strong>{{$item->price * $item->qty}}</strong></td>                                                 
                     <td align="center">
-						<a href="{{asset('admin/orders')}}/{{$item->order_id}}/edit/{{$item->id}}" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a href="{{asset('admin/orders')}}/{{$item->order_id}}/delete/{{$item->id}}" onclick="return confirmDelete('позицию')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        <a href="{{asset('admin/orders')}}/{{$item->order_id}}/details/delete/{{$item->item_id}}" onclick="return confirmDelete('товар')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             </tbody>
@@ -42,5 +41,8 @@
 				</tr>
 			</tbody>
         </table>
+        <div class="form-group">
+            <a href="{{asset('/admin/orders')}}/{{$orderDetails[0]->order_id}}/details/add_item_to_order" class="btn  btn-success">Добавить товар</a>
+        </div>
     </div>
 @endsection

@@ -93,6 +93,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 		Route::group(['prefix' => '/orders/{id}'], function()
 		{
 			Route::get('/details', 'OrdersController@details');
+			Route::get('/details/add_item_to_order', 'OrdersController@getAddItemToOrder');
+			Route::post('/details/add_item_to_order', 'OrdersController@postAddItemToOrder');
+            Route::get('/details/delete/{idItem}', 'OrdersController@deleteItem');
 			Route::get('/details/change', 'OrdersController@changeDetails');
 			Route::post('/details/change/{idItem}', 'OrdersController@changeQtyItem');
 			Route::get('/edit/{idItem}', 'OrdersController@editDetails');

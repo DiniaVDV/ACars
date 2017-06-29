@@ -11,7 +11,6 @@
                 <th class="tableCenter">Цена (грн)</th>
                 <th class="tableCenter">Количество(шт.)</th>
                 <th class="tableCenter">Сумма (грн)</th>
-                <th class="tableCenter">Действие</th>
             </tr>
             </thead>
     @foreach($orderDetails as $item)
@@ -20,10 +19,7 @@
                     <td><strong>{{$nameItems[$item->id]}}</strong></td>
                     <td align="center"><strong>{{$item->price}}</strong></td>   
 					<td align="center"><strong>{{ $item->qty}}</strong></td>                   
-					<td align="center" class="sum"><strong>{{$item->price * $item->qty}}</strong></td>                                                 
-                    <td align="center">
-                        <a href="{{asset('admin/orders')}}/{{$item->order_id}}/delete/{{$item->id}}" onclick="return confirmDelete('позицию')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                    </td>
+					<td align="center" class="sum"><strong>{{$item->price * $item->qty}}</strong></td>
                 </tr>
             </tbody>
     @endforeach

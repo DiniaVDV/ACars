@@ -37,7 +37,7 @@ class BrandController extends Controller
     /**
      * Save a new Brand
      *
-     * @param ArticleRequest $request
+     * @param BrandRequest $request
      * @return Response
      */
 
@@ -52,7 +52,7 @@ class BrandController extends Controller
 
     /** Edit a Brand
      *
-     *@param Article $brand
+     *@param Brand $brand
      * @return Response
      */
 
@@ -92,10 +92,10 @@ class BrandController extends Controller
     /**
      *
      * Save a new article.
-     * @param ArticleRequest $request
-     * @return Article
+     * @param BrandRequest $request
+     * @return Brand
      */
-    private function createBrand(/*ArticleRequest*/ $request)
+    private function createBrand(/*BrandRequest*/ $request)
     {
         $brand = new Brand($request->all());
 
