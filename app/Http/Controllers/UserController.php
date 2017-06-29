@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Models\AboutUser;
+use App\Models\User;
+use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Requests\AboutUserRequest;
 
 class UserController extends Controller
@@ -53,6 +56,34 @@ class UserController extends Controller
 	
 	public function orderHistory()
 	{
-		
+		$userId = \Auth::user()->id;
+		$orders = User::findOrFail($userId)->orders()->get();
+        $orderDetails = array();
+        $createdAt = array();
+        $nameItems = array();
+        $sum = array();
+		if(!empty($orders)){
+		    foreach ($orders as $order){
+                $dataArray = OrdersController::getDetails($order->id);
+                $orderDetails[$order->id] = $dataArray[0];
+                $createdAt[$order->id] = $dataArray[1];
+                $nameItems[$order->id] = $dataArray[2];
+                $sum[$order->id] = $order->total_price;
+            }
+        }
+        return view('user.ordersHistory', compact('orderDetails', 'createdAt', 'nameItems', 'sum'));
 	}
+
+	public function myComments()
+    {
+
+        $userId = \Auth::user()->id;
+        $comments = User::findOrFail($userId)->comments()->get();
+        foreach ($comments as $comment){
+            $item = $comment->item()->first();
+            $brand = $item->brand()->first();
+            $nameItems[$comment->id] = $item->name . ' ' . $item->code . ' ' . $brand->name;
+        }
+        return view('user.myComments', compact('comments','nameItems'));
+    }
 }

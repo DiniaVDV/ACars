@@ -8,7 +8,7 @@ use App\Models\Order;
 use App\Models\Item;
 use App\Models\Brand;
 use App\Models\OrderDetail;
-use App\Models\orderStatus;
+use App\Models\OrderStatus;
 use App\Models\User;
 use App\Models\TypeOfDelivery;
 use App\Models\TypeOfPayment;
@@ -52,7 +52,7 @@ class OrdersController extends Controller
         $Order = Order::findOrFail($id);
         $Order->update($request->all());
         return redirect()->route('admin.orders')->with([
-            'flash_message' => 'Категория обновлена!',
+            'flash_message' => 'Заказ обновлен!',
             'flash_message_important' => true
         ]);
     }
@@ -98,16 +98,31 @@ class OrdersController extends Controller
 		
 	public function details($id)
 	{
-		$orderDetails = OrderDetail::where('order_id', $id)->get();
-		$nameItems = array();
-		foreach($orderDetails as $itemDetail){
-			$item = Item::findOrFail($itemDetail->item_id);
-			$brand = Brand::findOrFail($item->brand_id);
-			$nameItems[$itemDetail->id] = $item->name . ' ' . $item->code . ' ' . $brand->name;
-		}
-		$createdAt = Order::findOrFail($id)->value('created_at');
+	    $allData = $this->getDetails($id);
+        $orderDetails = $allData[0];
+        $createdAt = $allData[1];
+        $nameItems = $allData[2];
+
 		return view('admin.orders.details', compact('orderDetails', 'createdAt', 'nameItems'));
 	}
+
+	public static function getDetails($id)
+    {
+        $dataArray = array();
+        $orderDetails = OrderDetail::where('order_id', $id)->get();
+        $dataArray[0] = $orderDetails;
+        $createdAt = Order::findOrFail($id);
+        $dataArray[1] = $createdAt->created_at;
+        $nameItems = array();
+        foreach($orderDetails as $itemDetail){
+            $item = Item::findOrFail($itemDetail->item_id);
+            $brand = Brand::findOrFail($item->brand_id);
+            $nameItems[$itemDetail->id] = $item->name . ' ' . $item->code . ' ' . $brand->name;
+        }
+
+        $dataArray[2] = $nameItems;
+        return $dataArray;
+    }
 	
 	public function changeTypeOfDelivery(Request $request)
 	{

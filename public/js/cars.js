@@ -91,7 +91,7 @@ function typeSort(data){
 	if(typeSort){
 	$.ajax({
 		type:"GET",
-		url: "/Acars.xxx/shop/public/typeSort",
+		url: /*"/Acars.xxx/shop/public*/"/typeSort",
 		data:{typeSort: typeSort},
 		success: function(data){
 			console.log(data);
@@ -122,7 +122,7 @@ function addToCart(item_id){
 		
 			$.ajax({
 				type:"GET",
-				url: "/Acars.xxx/shop/public/add_to_cart/"+item_id,
+				url: /*"/Acars.xxx/shop/public/*/"/add_to_cart/"+item_id,
 				data:{item_id : item_id},
 				success: function(item){
 					console.log(item);

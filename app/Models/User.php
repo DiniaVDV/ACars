@@ -37,7 +37,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Comment');
     }
-	
+
+    public function aboutUser()
+    {
+        return $this->hasOne('App\Models\AboutUser');
+    }
+
 	 /**
      * Get the roles associated with the given user.
 	 *

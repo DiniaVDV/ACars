@@ -1,5 +1,12 @@
 <div class="panel panel-default auth">
 	<div class="authHead panel-heading"><h4>Регистрация</h4></div>
+		@if(Session::has('message'))
+			<div class="alert alert-success" role="alert">
+				{!!Session::get('message')!!}
+			</div>
+		@endif
+
+
 	<div class="panel-body">
 		<form role="form" method="POST" action="{{ route('register') }}">
 			{{ csrf_field() }}
@@ -25,16 +32,6 @@
 						</span>
 					@endif
 			</div>	
-			<div class="form-group{{ $errors->has('phoneNumber') ? ' has-error' : '' }}">
-				<label for="email" class="control-label">Номер телефона:</label>
-				<input id="phoneNumber" type="text" placeholder="Введите номер телефона" class="form-control" name="phoneNumber" value="{{ old('phoneNumber') }}" required>
-					@if ($errors->has('phoneNumber'))
-						<span class="help-block">
-							<strong>{{ $errors->first('phoneNumber') }}</strong>
-						</span>
-					@endif
-			</div>
-
 			<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 				<label for="password" class="control-label">Пароль:</label>
 				<input id="password" type="password" placeholder="Введите пароль" class="form-control" name="password" required>
@@ -58,7 +55,6 @@
 			</div>
 		</form>
 	</div>
+
 </div>
-
-
 

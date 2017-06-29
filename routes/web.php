@@ -61,6 +61,12 @@ Route::group(['prefix' => 'user/{name}'], function()
 
 
 Auth::routes();
+Route::post('/register','AdvancedReg@register');
+// такой маршрут  auth/register у нас уже есть в router.php, его надо изменить на этот
+Route::get('register/confirm/{token}','AdvancedReg@confirm');
+Route::get('repeat_confirm','AdvancedReg@getRepeat');
+Route::post('repeat_confirm','AdvancedReg@postRepeat');
+Route::post('login', 'Auth\MyAuth@auth');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
@@ -91,6 +97,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 			Route::post('/details/change/{idItem}', 'OrdersController@changeQtyItem');
 			Route::get('/edit/{idItem}', 'OrdersController@editDetails');
 		});
+        Route::get('/comments', 'CommentsController@index');
+        Route::get('/comments/{id}/edit', 'CommentsController@edit');
+        Route::patch('/comments/{id}', 'CommentsController@update');
+        Route::get('/comments/{id}/delete', 'CommentsController@delete');
+
 		Route::resource('/users', 'UserController');
         Route::get('/users/{id}/delete', 'UserController@destroy');
         Route::get('/changeRole', 'UserController@changeRole');
@@ -107,7 +118,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 		Route::group(['prefix' => '/orders/{id}'], function()
 		{
 			Route::get('/details', 'OrdersController@details');
-		});		
+		});
+
+        Route::resource('/users', 'UserController');
+
 	});
 
 	

@@ -44,13 +44,13 @@
 											   @if($element->title == 'Личный кабинет')
 													<li><a href="{{asset($element->alias)}}/{{Auth::user()->name}}">{{$element->title}}</a></li>
 												@else
-													<li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+													<li><a href="{{asset($element->alias)}}">{{$element->title}}</a></li>
 												@endif
 											@endif
 											
 											@if(Auth::user()->isThe('admin'))
 												@if($element->for_admin == 'true')
-													<li><a href="{{$element->alias}}">{{$element->title}}</a></li>	
+													<li><a href="{{asset($element->alias)}}">{{$element->title}}</a></li>
 												@endif
 											@endif
 							@endforeach

@@ -45,10 +45,4 @@ class Comment extends Model
     }
 
 
-    public static function qtyCheckCommetns()
-    {
-        $qtyComments = Comment::where('status', 'check')->count();
-        return $qtyComments;
-    }
-
 }

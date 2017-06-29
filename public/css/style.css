@@ -25,6 +25,10 @@ header{
     margin: 35px 5px;
 }
 
+.logoMod{
+	width: 24px;
+	height: 24px;
+}
 nav{
     background: #869290;
     padding: 5px;
@@ -129,9 +133,9 @@ nav{
 	color: #9E0B0F;
 	background-color: #e3ebee;
 }
-.userProfile > li.active > a:hover{
-	color: #e3ebee;
-	background-color: #9E0B0F;	
+.userProfile > li > a:hover{
+	color: #9E0B0F;
+	background-color: #e3ebee;
 }
 
 .userProfile li a {
@@ -182,8 +186,12 @@ nav{
 	margin: 7px -15px 10px 7px;
 }
 
-.itemBasicOnList > a,
-				   a:hover{
+.itemBasicOnList > a{
+	color: #e3ebee;
+	border-color: #e3ebee;
+	text-decoration: none;
+}
+.itemBasicOnList > a:hover{
 	color: #e3ebee;
 	border-color: #e3ebee;
 	text-decoration: none;
@@ -594,3 +602,10 @@ select:focus{
 	margin-bottom: 10px;
 }
 
+.table-striped > tbody > tr:nth-of-type(2n+1){
+	background: none;
+}
+
+.tableCenter{
+	text-align: center;
+}

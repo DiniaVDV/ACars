@@ -11,7 +11,10 @@ use App\Models\Car;
 use App\Models\Order;
 use App\Models\DeliveryAddress;
 use App\Models\OrderDetail;
+use App\Http\Requests\CheckoutRequest;
 use Session;
+use Mail;
+use App\Mail\OrderShipped;
 
 class ItemsController extends Controller
 {
@@ -108,16 +111,25 @@ class ItemsController extends Controller
 
     public function getCheckout()
     {
-        $cart = Cart::content();
+
         if(Cart::count() == null){
             return view('shop.shoppingCart');
         }
-        return view('shop.checkout', compact('cart'));
+        $aboutUser = \Auth::user()->aboutUser()->get();
+
+        $userAddress = !empty($aboutUser[0]->city)? $aboutUser[0]->city . ', ' : '';
+        $userAddress .= !empty($aboutUser[0]->street)? $aboutUser[0]->street . ' ' : '';
+        $userAddress .= !empty($aboutUser[0]->house_number)? $aboutUser[0]->house_number . ', кв.' : '';
+        $userAddress .= !empty($aboutUser[0]->flat_number)? $aboutUser[0]->flat_number : '';
+
+        return view('shop.checkout', compact('cart', 'userAddress'));
     }
 	
-	public function postCheckout(Request $request)
-    {	
-		$cart = Cart::content();		
+	public function postCheckout(CheckoutRequest $request)
+    {
+        $user = \Auth::user();
+        $dataToMail = array();
+		$cart = Cart::content();
 		if(!empty(Cart::count())){		
 			$data = $request->all();
 			$order = new Order();
@@ -133,7 +145,7 @@ class ItemsController extends Controller
 				$orderDetail->item_id = $cartItem->id;
 				$orderDetail->price = $cartItem->price;
 				$orderDetail->qty = $cartItem->qty;
-				$orderDetail->save();	
+				$orderDetail->save();
 			}
 			if(empty($data['checkOldAddress'])){
 				$newAddress = new DeliveryAddress();
@@ -144,7 +156,9 @@ class ItemsController extends Controller
 				$newAddress->flat_number = $data['flat_number'];
 				$newAddress->save();							
 			}
+            Mail::to($user->email)->send(new OrderShipped($user, $order));
 			$this->cleanCart();
+
 			return view('shop.orderPlaced', compact('order'));
 		}
 		return redirect('/');

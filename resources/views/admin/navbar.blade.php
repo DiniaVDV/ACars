@@ -46,7 +46,7 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-table fa-fw"></i>Автомобили<span class="fa arrow"></span></a>
+                        <a href="tables.html"><i class="fa fa-car" aria-hidden="true"></i>Автомобили<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{ asset('admin/cars') }}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
@@ -87,9 +87,6 @@
                             <li>
                                 <a href="{{ asset('admin/comments') }}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
                             </li>
-                            <li>
-                                <a href="{{ asset('admin/comments/create') }}">Добавить</a>
-                            </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -106,13 +103,13 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i>Пользователи<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-users" aria-hidden="true"></i>Пользователи<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{ asset('admin/users') }}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
                             </li>
                             <li>
-                                <a href="{{ asset('admin/users/create') }}">Добавить</a>
+                                <a href="{{ asset('admin/users/create') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Добавить</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

@@ -16,8 +16,11 @@
 						@endif>					
 						<a href="{{asset('user'). '/' . Auth::user()->name.'/order_history'}}">История заказов</a>
 					</li>	
-					<li role="presentation">
-						<a href="{{asset('user'). '/' . Auth::user()->name.'/my_comments'}}">Мои отзывы</a>
+					<li role="presentation"
+						@if( Route::getCurrentRoute()->uri() == 'user/{name}/my_comments')
+								class="active"
+						@endif>
+					<a href="{{asset('user'). '/' . Auth::user()->name.'/my_comments'}}">Мои отзывы</a>
 					</li>	
 					<li role="presentation">
 						<a href="{{asset('shopping_cart')}}">Корзина</a>

@@ -99,7 +99,7 @@ $('.statusParent').change(function(){
 		var atrId = $(this).attr('id');
 		var categoryId = (atrId.substr(3, 5));
 		$('.parentId_' + categoryId).prop('disabled', true);
-		var cc = $('.parentId_' + categoryId).children('.parent_id').find("option:first").prop('selected', true);
+//		var cc = $('.parentId_' + categoryId).children('.parent_id').find("option:first").prop('selected', true);
 		$.ajax({
 			type:"GET",
 			url:"{{asset('/admin/categories/change_parent_category')}}",
@@ -108,7 +108,7 @@ $('.statusParent').change(function(){
 				flag: flag,
 			},
 			success: function(data){
-				
+                console.log(data);
 			},
 			error: function(data){
 				console.log(data);
