@@ -21,7 +21,7 @@
 
 <div class="form-group">
     {!! Form::label('parent_id_2', 'Входит в еще одну категорию:') !!}
-    {!! Form::select('parent_id_2', $categories, isset($category->parent_id_2) ? $category->parent_id_2 : null, [ 'class' => 'form-control  parent_id', 'placeholder' => 'Выберите категорию']) !!}
+    {!! Form::select('parent_id_2', $categories, isset($category->parent_id_2) ? $category->parent_id_2 : null, [ 'class' => 'form-control  parent_id)', 'placeholder' => 'Выберите категорию']) !!}
 </div>
 
 <div class="form-group">

@@ -12,7 +12,7 @@
 			</button>
 			<div id="wrap" onclick="show('none')"></div>
 			<div id="window">
-				@if(empty($car->alias))
+
 					<ul id="selectCarMenu">
 						<li><h4>Подбор по модели авто</h4></li>
 						<li>	
@@ -37,15 +37,7 @@
 							</select>
 						</li>
 					</ul>
-				@else
-					<div class="center col-xs-offset-4">
-						<h4>Выбран автомобиль:</h4>
-						<h4><a href="http://localhost/shop/public"><?=$car->alias?></a></h4>
-						<a class="btn btn-default" href="{{asset('/')}}">
-							Сброс
-						</a>
-					</div>
-				@endif
+
 			</div>
 		</div>
 

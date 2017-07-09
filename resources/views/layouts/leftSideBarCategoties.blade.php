@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-sm-3 col-md-3 col-lg-3 hidden-xs">
+		<div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
 			<div class="leftSidebar">
 				<h4>Выбран автомобиль:</h4>
 				<div>
@@ -39,7 +39,7 @@
 															<?php elseif(count($childValue) == 1):?>
 																	<li class="Node ExpandLeaf IsLast">
 																		<div class="Expand"></div>
-																		<div class="Content"><?=$childElement?></div>
+																		<div class="Content"><a href="{{asset('/cars')}}/{{Session::get('car_alias')}}/categories/{{$childValue->category_name}}"><?=$childElement?></a></div>
 																	</li>
 															<?php endif;?>		
 												  <?php endif;?>
@@ -53,7 +53,7 @@
 									<ul class="Container">
 										<li class="Node IsRoot IsLast ExpandClosed">
 											<div class="Expand"></div>
-											<div class="Content"><?=$element?></div>
+											<div class="Content"><a href="{{asset('/cars')}}/{{Session::get('car_alias')}}/categories/{{$value[0]->category_name}}"><?=$element?></a></div>
 										</li>
 									</ul>
 		

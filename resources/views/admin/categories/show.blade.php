@@ -30,12 +30,14 @@
 							</label>
                         </div>
 					</td>
-                    <td align="center">
+                    <td align="center">						
 						<div class="checkbox col-md-1">
-                           <label>
-								{!! Form::checkbox('status', false, false, ['id' => 'id_1_' . $category->id,'class' => 'statusParent']) !!}
-							</label>
-						</div>
+							<fieldset disabled="" class="actioned">
+							   <label>
+									{!! Form::checkbox('status', false, false, ['id' => 'id_1_' . $category->id,'class' => 'statusParent']) !!}
+								</label>
+							</fieldset>
+						</div>					
 						<fieldset class="parentId_1_{{$category->id}}" disabled>	
 								<?php $categoriesParentFor = clone $categoriesParent;
 								unset($categoriesParentFor[$category->id]);
@@ -46,20 +48,28 @@
 					<td align="center">
 						<div class="checkbox col-md-1">
                            <label>
-								{!! Form::checkbox('status', false, false, ['id' => 'id_2_' . $category->id,'class' => 'statusParent']) !!}
+								{!! Form::checkbox('status', false, false, ['id' => 'id_2_' . $category->id,'class' => 'statusParent actioned']) !!}
 							</label>
 						</div>
 						<fieldset class="parentId_2_{{$category->id}}" disabled>						
 								{!! Form::select('parent_id_2', $categoriesParentFor, !empty($category->parent_id_2) ? $category->parent_id_2 : null, ['class' => 'form-control parent_id col-md-11', 'placeholder' => 'Выберите категорию']) !!}				
 						</fieldset>
 					</td>
-                    <td align="center">
-                        <a href="{{asset('admin/category')}}/{{$category->id}}/edit" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a href="{{asset('admin/category')}}/{{$category->id}}/delete" onclick="return confirmDelete('категорию')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    <td align="center" class="actionCol">
+						<ul class="nav navbar-top-links">
+                            <li class="actioned">
+								<a href="{{asset('admin/category')}}/{{$category->id}}/edit" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+							</li>
+
+                            <li class="actioned">
+								<a href="{{asset('admin/category')}}/{{$category->id}}/delete" onclick="return confirmDelete('категорию')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+							</li>
+						</ul>
                     </td>
                 </tr>
             </tbody>
     @endforeach
         </table>
     </div>
+	    @include('partials.pagination', ['paginate' => $categories])
 @endsection

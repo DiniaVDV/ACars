@@ -1,18 +1,7 @@
 
 <div class="form-group">
-    {!! Form::label('alias', 'Псевдоним:') !!}
-    {!! Form::text('alias', null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
     {!! Form::label('brand', 'Марка:') !!}
     {!! Form::text('brand', null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('years', 'Года выпуска:') !!}
-    {!! Form::select('year_began_id', $years,  !empty($car->year_began_id) ? $car->year_began_id : null, ['class' => 'form-control', 'placeholder' => 'Выберите начало выпуска']) !!}
-	{!! Form::select('year_ended_id', $years, !empty($car->year_ended_id) ? $car->year_ended_id : null, ['class' => 'form-control', 'placeholder' => 'Выберите конец выпуска' ]) !!}
 </div>
 
 <div class="form-group">
@@ -28,6 +17,17 @@
 <div class="form-group">
     {!! Form::label('modification', 'Модификация:') !!}
     {!! Form::text('modification', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('alias', 'Псевдоним:') !!}
+    {!! Form::text('alias', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('years', 'Года выпуска:') !!}
+    {!! Form::select('year_began_id', $years,  !empty($car->year_began_id) ? $car->year_began_id : null, ['class' => 'form-control', 'placeholder' => 'Выберите начало выпуска']) !!}
+	{!! Form::select('year_ended_id', $years, !empty($car->year_ended_id) ? $car->year_ended_id : null, ['class' => 'form-control', 'placeholder' => 'Выберите конец выпуска' ]) !!}
 </div>
 
 <div class="form-group">
@@ -47,7 +47,7 @@
 
 <div class="form-group">
     {!! Form::label('type_of_engine_id', 'Тип двигателя:') !!}
-	{!! Form::select('type_of_engine_id', $typeOfEngine, !empty($car) ? $car->type_of_engine_id : null, ['class' => 'form-control type_of_engine', 'placeholder' => 'Выберите тип приводa']) !!}
+	{!! Form::select('type_of_engine_id', $typeOfEngine, !empty($car) ? $car->type_of_engine_id : null, ['class' => 'form-control type_of_engine', 'placeholder' => 'Выберите тип двигателя']) !!}
 </div>
 
 <div class="form-group">

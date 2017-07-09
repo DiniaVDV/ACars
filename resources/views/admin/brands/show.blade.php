@@ -25,9 +25,15 @@
 					<td><strong>{{$brand->description}}
 					</strong></td>                   
 					<td align="center"><strong>{{$brand->country}}</strong></td>
-                    <td align="center">
-                        <a href="{{asset('admin/brands')}}/{{$brand->id}}/edit" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a href="{{asset('admin/brands')}}/{{$brand->id}}/delete" onclick="return confirmDelete('бренд')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+					<td align="center" class="actionCol">
+						<ul class="nav navbar-top-links">
+                            <li class="actioned">
+								<a href="{{asset('admin/brands')}}/{{$brand->id}}/edit" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+							</li>
+                            <li class="actioned">
+								<a href="{{asset('admin/brands')}}/{{$brand->id}}/delete" onclick="return confirmDelete('бренд')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+							</li>
+						</ul>
                     </td>
                 </tr>
             </tbody>

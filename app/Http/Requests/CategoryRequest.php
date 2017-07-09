@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'category_name' => 'required',
+            // 'category_name' => 'required',
         ];
     }
 
@@ -37,7 +37,7 @@ class CategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'category_name.required' => 'Необходимо указать псевдоним.',
+            // 'category_name.required' => 'Необходимо указать псевдоним.',
             'title.required'  => 'Необходимо написать название.',
         ];
     }

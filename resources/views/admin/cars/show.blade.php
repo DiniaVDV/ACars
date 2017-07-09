@@ -37,9 +37,16 @@
                     <td align="center"><strong>
 					{{!empty($car->type_of_engine_id) ? $typeOfEngine[$car->type_of_engine_id] : 'нет данных'}}</strong></td>
                     <td align="center"><strong>{{!empty($car->wheel_drive_id) ? $wheelDrive[$car->wheel_drive_id] : 'нет данных'}}</strong></td>
-                    <td align="center">
-                        <a href="{{asset('admin/cars')}}/{{$car->id}}/edit" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a href="{{asset('admin/cars')}}/{{$car->id}}/delete" onclick="return confirmDelete('автомобиль')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    <td align="center" class="actionCol">
+						<ul class="nav navbar-top-links">
+                            <li class="actioned">
+								<a href="{{asset('admin/cars')}}/{{$car->id}}/edit" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+							</li>
+
+                            <li class="actioned">
+								<a href="{{asset('admin/cars')}}/{{$car->id}}/delete" onclick="return confirmDelete('автомобиль')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+							</li>
+						</ul>
                     </td>
                 </tr>
             </tbody>

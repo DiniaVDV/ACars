@@ -13,7 +13,7 @@ class ItemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,27 @@ class ItemRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'alias' => 'required',
+            'code' => 'required|numeric',
+            'price' => 'required|numeric',
+//            'image' => 'present|image',
+        ];
+    }
+
+    /**
+     * Получить сообщения об ошибках для определённых правил проверки.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required'  => 'Поле название не можеть быть пустым.',
+            'alias.required'  => 'Поле псевдоним не можеть быть пустым.',
+            'code.required'  => 'Поле код не можеть быть пустым.',
+            'price.required'  => 'Поле цена не можеть быть пустым.',
+//            'image.image'  => 'Добавить можна только картинку(jpeg, png, bmp, gif, или svg).',
         ];
     }
 }

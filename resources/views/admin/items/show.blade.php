@@ -38,9 +38,15 @@
 						</td>
 						<td align="center"><strong>{{$item->price}}</strong></td>
 						<td align="center"><strong>{{$item->amount}}</strong></td>
-						<td align="center">
-							<a href="{{asset('admin/items')}}/{{$item->id}}/edit" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-							<a href="{{asset('admin/items')}}/{{$item->id}}/delete" onclick="return confirmDelete('товар')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+						<td align="center" class="actionCol">
+							<ul class="nav navbar-top-links">
+								<li class="actioned">
+									<a href="{{asset('admin/items')}}/{{$item->id}}/edit" title="редактировать"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+								</li>
+								<li class="actioned">
+									<a href="{{asset('admin/items')}}/{{$item->id}}/delete" onclick="return confirmDelete('товар')" title="удалить"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+								</li>
+							</ul>
 						</td>
 					</tr>
 				</tbody>

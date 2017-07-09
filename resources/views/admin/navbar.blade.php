@@ -40,7 +40,7 @@
                                 <a href="{{ asset('admin/categories')}}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
                             </li>
                             <li>
-                                <a href="{{ asset('admin/category/create')}}">Добавить</a>
+                                <a class="actioned" href="{{ asset('admin/category/create')}}">Добавить</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -52,7 +52,7 @@
                                 <a href="{{ asset('admin/cars') }}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
                             </li>
                             <li>
-                                <a href="{{ asset('admin/cars/create') }}">Добавить</a>
+                                <a class="actioned" href="{{ asset('admin/cars/create') }}">Добавить</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -64,7 +64,7 @@
                                 <a href="{{ asset('admin/brands') }}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
                             </li>
                             <li>
-                                <a href="{{ asset('admin/brands/create') }}">Добавить</a>
+                                <a class="actioned" href="{{ asset('admin/brands/create') }}">Добавить</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -76,7 +76,7 @@
                                 <a href="{{ asset('admin/items') }}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
                             </li>
                             <li>
-                                <a href="{{ asset('admin/items/create') }}">Добавить</a>
+                                <a class="actioned" href="{{ asset('admin/items/create') }}">Добавить</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -109,7 +109,7 @@
                                 <a href="{{ asset('admin/users') }}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
                             </li>
                             <li>
-                                <a href="{{ asset('admin/users/create') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Добавить</a>
+                                <a class="actioned" href="{{ asset('admin/users/create') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Добавить</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -121,7 +121,7 @@
                                 <a href="{{ asset('admin/main_menu') }}"><i class="fa fa-edit fa-fw"></i>Редактировать</a>
                             </li>
                             <li>
-                                <a href="{{ asset('admin/main_menu/create') }}">Добавить</a>
+                                <a class="actioned" href="{{ asset('admin/main_menu/create') }}">Добавить</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

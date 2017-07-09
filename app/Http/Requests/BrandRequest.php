@@ -25,7 +25,8 @@ class BrandRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'country' => 'required'
+            'country' => 'required',
+//            'logo' => 'image',
         ];
     }
 	
@@ -39,6 +40,7 @@ class BrandRequest extends FormRequest
         return [
             'name.required' => 'Необходимо написать название.',
             'country.required' => 'Необходимо указать страну.',
+//            'logo.image'  => 'Добавить можна только картинку(jpeg, png, bmp, gif, или svg).',
         ];
     }
 }

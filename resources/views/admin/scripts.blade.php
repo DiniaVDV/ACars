@@ -15,30 +15,6 @@ $(document).ready(function() {
 });
 
 
-/**************Checked comments***********************************/
-
-$(".status").change(function() {
-    if(this.checked) {
-       console.log();
-        alert('Комментарий опубликован!');
-        var commId = $(this).attr('id');
-        $.ajax({
-            type:"GET",
-            url: 'comments/' + commId + '/checked',
-            data: commId,
-            success: function (data) {
-                console.log(data);
-                location.reload();
-            },
-            error: function (data) {
-                console.log(data);
-            }
-
-        });
-    }
-});
-/*******************************************************************/
-
 /**********************preloader animation**********************************/
 // $(window).on('load', function(){
 	// var $preloader = $('$prldr'), $svg_nam = $preloader.find('.svg_anm');
@@ -78,7 +54,7 @@ $(function(){
 			if(!$(this).attr('disabled')){
 				var atrId = $(this).parent().parent().attr('class');
 				if(atrId){
-					var id = (atrId.substr(9, 5));					
+					var id = (atrId.substr(9, 6));					
 					$('#id_' + id).prop('checked', 'checked');
 					$('.parentId_' + id).prop('disabled', false);
 				}
@@ -119,7 +95,7 @@ $('.statusParent').change(function(){
 /****************change in DB***************************/
 $('.parent_id').change(function(){
 	var flag = true;
-	var categoryId = ($(this).parent().prop('class')).substr(9, 5);
+	var categoryId = ($(this).parent().prop('class')).substr(9, 6);
 	var parentId = ($(this).prop('value'));
 	$.ajax({
 		type:"GET",
@@ -236,7 +212,7 @@ $('.role').change(function(){
     if(this.checked){
         $.ajax({
             type:"GET",
-            url: '{{asset('/admin_panel/changeRole')}}',
+            url: "{{asset('/admin_panel/changeRole')}}",
             data:{
                 userRole: userRole,
                 status: true,
@@ -251,7 +227,7 @@ $('.role').change(function(){
     }else{
         $.ajax({
             type: "GET",
-            url: '{{asset('admin_panel/changeRole')}}',
+            url: "{{asset('admin_panel/changeRole')}}",
             data:{
                 userRole: userRole,
                 status: false,
@@ -267,10 +243,48 @@ $('.role').change(function(){
 });
 
 /***************************************************************************/
+/***************Change access*************************/
 
+$(function(){
+	var roles = JSON.parse('<?=(Session::get('roles'))?>');
+console.log(roles);
+	var moderator = false;
+	var admin = false;
+	if(roles){
+		for(var i = 0; i < roles.length; i++){
+			if(roles[i].name == 'moderator'){
+				moderator = true;	
+			}
+			if(roles[i].name == 'admin'){
+				admin = true;
+			}
+		}
+	}
+
+	if(moderator == true && admin == false){
+		$('.actioned').attr('disabled' , true)
+		$('.actioned').addClass('disabled')
+		var el = $('.disabled').children();
+		for(var i = 0; i < el.length; i++){
+			$(el[i]).attr('href', '#');
+			$(el[i]).attr('onclick', '');
+		}
+		$('#buttonHead').attr('disabled' , true);
+		$('#buttonBody').attr('disabled' , true);
+	}
+	if(admin == true){
+		$('.actioned').attr('disabled' , false)
+	}
+});
+
+
+/**********************************************************************/
 /*******For select2******************************************************/
 $('#role_list').select2({
     placeholder: 'Выберите роль',
+});
+$('#car_list').select2({
+    placeholder: 'Выберите автомобиль',
 });
 /***************************************************************************/
 </script>

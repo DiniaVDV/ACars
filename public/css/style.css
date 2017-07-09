@@ -96,11 +96,9 @@ nav{
     border-radius:5px;
 	padding: 5px 10px 5px 10px;
 	margin-right: 0px;
-
 }
 
 .onRed{
-
 	color:#869290;
 }
 
@@ -120,8 +118,7 @@ nav{
     background: #9e0b0f;
     border-radius:5px;
 	margin: 0px -10px -10px -15px ;
-	padding: 5px 5px 5px 5px;
-	
+	padding: 5px 5px 5px 5px;	
 }
 
 .leftSidebar > .input-sm{

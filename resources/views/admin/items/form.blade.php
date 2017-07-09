@@ -21,7 +21,7 @@
 
 <div class="form-group">
     {!! Form::label('car_list', 'Автомобиль:') !!}
-    {!! Form::select('car_list[]', $cars, !empty($item) ? $itim->car_list : null, ['id' => 'car_list', 'class' => 'form-control', 'placeholder' => 'Выберите автомобиль', 'multiple']) !!}
+    {!! Form::select('car_list[]', $cars, !empty($item) ? $item->car_list : null, ['id' => 'car_list', 'class' => 'form-control', 'placeholder' => 'Выберите автомобиль', 'multiple']) !!}
 </div>
 
 <div class="form-group">

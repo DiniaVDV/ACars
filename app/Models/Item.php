@@ -7,6 +7,17 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
 
 class Item extends Model implements Buyable
 {
+    protected $fillable = [
+        'name',
+        'alias',
+        'code',
+        'description',
+        'price',
+        'amount',
+        'SEO',
+        'image',
+
+    ];
 
     public function getBuyableIdentifier($options = null){
         return $this->id;

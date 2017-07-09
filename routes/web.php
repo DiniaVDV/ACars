@@ -82,6 +82,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 		Route::resource('/cars', 'CarsController');
 		Route::resource('/brands', 'BrandController');
 		Route::resource('/items', 'ItemsController');
+        Route::get('/items/{id}/delete', 'ItemsController@destroy');
 		Route::get('/orders', 'OrdersController@index');
 		Route::get('/orders/change_type_of_delivery', 'OrdersController@changeTypeOfDelivery');
 		Route::get('/orders/change_type_of_payment', 'OrdersController@changeTypeOfPayment');

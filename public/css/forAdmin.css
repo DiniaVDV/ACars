@@ -75,3 +75,12 @@ td .qty{
 	padding-right: 5px;
 }
 /*-----------------------------------------*/
+
+.actionCol{
+	width:125px;
+}
+
+.nav > li.disabled > a > .fa-pencil-square-o, 
+.nav > li.disabled > a > .fa-trash-o{
+    color: #777;
+}

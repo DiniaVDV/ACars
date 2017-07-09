@@ -40,8 +40,8 @@ class carsController extends Controller
 		$car = $request->all();
 		$year_began = Year::findOrFail($car['year_began_id']);
 		$year_ended = Year::findOrFail($car['year_ended_id']);
-		$car['years'] = $year_began->year . '_' . $year_ended->year;
-	
+		$car['years'] = $year_began->year . '-' . $year_ended->year;
+		$car['alias'] = empty($car['alias']) ? $this->aliasForCar($car) : $car['alias'];
 		Car::create($car);
 		
         return redirect('admin/cars')->with([
@@ -82,5 +82,11 @@ class carsController extends Controller
         ]);
     }
 	
-
+	public function aliasForCar($car)
+	{
+		$carModel = str_replace(' ', '_',  $car['model']);
+		$carEngine = str_replace(' ', '_',  $car['engine']);
+		$car['alias'] = $car['brand'] . '_' . $carModel . '_' . $carEngine;
+		return $car['alias'];		
+	}
 }

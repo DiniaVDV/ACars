@@ -10,9 +10,9 @@ class CarsController extends Controller
 {
 
     public function getYears(Request $request)
-    {
+    {		
 		$brand = $request->input();
-		$request->session()->put('brand', $brand);
+		$request->session()->put('brand', $brand);		
         $years = Car::getListOfYears($brand);
         return $years;
     }

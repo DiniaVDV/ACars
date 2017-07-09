@@ -62,7 +62,7 @@ class CategoriesController extends Controller
                 foreach($cars as $car){
                     if($car->id == $carId){
                         $items[$item->id] = $item;
-                        $brands[$item->id] = Item::find($item['id'])->brand()->get();
+                        $brands[$item->id] = Item::find($item['id'])->brand()->first();
                         break;
                     }
                 }
@@ -70,6 +70,7 @@ class CategoriesController extends Controller
         }
         $request->session()->put('car_alias', $alias);
         $car = Car::getCar($alias);
-        return view('pages.listOfItems', compact('brands', 'items', 'car'));
+        $listOfBrands = array_unique($brands);
+        return view('pages.listOfItems', compact('brands', 'items', 'car', 'listOfBrands'));
     }
 }

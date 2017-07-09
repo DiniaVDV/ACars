@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
-use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Car;
 use App\Models\Order;
+use App\Models\Brand;
 use App\Models\DeliveryAddress;
 use App\Models\OrderDetail;
-use App\Http\Requests\CheckoutRequest;
 use Session;
-use Mail;
-use App\Mail\OrderShipped;
 
 class ItemsController extends Controller
 {
@@ -31,65 +27,30 @@ class ItemsController extends Controller
 			if(empty($item->image)){
                 $item->image = 'no_picture.gif';
             }
-			$brands[$item['id']] = Item::find($item['id'])->brand()->get();
+			$brands[$item['id']] = Item::find($item['id'])->brand()->first();
 		}
-        return view('pages.listOfItems', compact('brands', 'items', 'car'));
+        $listOfBrands = array_unique($brands);
+        return view('pages.listOfItems', compact('brands', 'items', 'car', 'listOfBrands'));
 	}	
 
 
 	
-	public function selectItemCar($carAlias, $item_alias_code, Request $request)
+	public function selectItemCar($car, $item_alias_code, Request $request)		
 	{
-
-        $item = Item::getItemsByAliasCode($item_alias_code);
-
-        $item->description = explode('|', $item->description);
-        $brand = Item::find($item->id)->brand()->first();
-        $cars = Item::find($item->id)->cars()->get();
-        $items = Car::where('alias', $carAlias)->firstOrFail()->items()->get();
-        $categoryIn = Item::find($item->id)->categories()->get();
-        $listOfItems = array();
-        if(!empty($items)){
-            foreach ($items as $itemFromList){
-                if($itemFromList->id != $item->id){
-                    $categoryFromList = $itemFromList->categories()->get();
-                    foreach ($categoryFromList as $category){
-                        $flag = $this->checkCategoryId($categoryIn, $category);
-                        if($flag){
-                            $brandForListOfItem = Item::findOrFail($itemFromList->id)->brand()->get();
-
-                            $listOfItems[$brandForListOfItem[0]->name] = $itemFromList;
-                            break;
-                        }
-                    }
-                }
-
-            }
-        }
-        return view('shop.aboutItem', compact('item', 'brand', 'cars', 'listOfItems'));
-	}
-
-	public function checkCategoryId($categoryIn, $categoryTry){
-            foreach ($categoryIn as $categoryInOne) {
-                if($categoryInOne->id == $categoryTry->id){
-                    return true;
-                }else{
-                    return false;
-                }
-	        }
-    }
-
-	public function selectItem($item_alias_code, Request $request)		
-	{
-
+		
 		$item = Item::getItemsByAliasCode($item_alias_code);
-        $comments = $item->comments()->orderBy('created_at', "desc")->paginate(5);
-        $users = User::usersForComments($comments);
-        $item->description = explode('|', $item->description);
 		$brand = Item::find($item->id)->brand()->first();
 		$cars = Item::find($item->id)->cars()->get();
-
-		return view('shop.aboutItem', compact('item', 'brand', 'cars', 'comments', 'users'));
+		return view('shop.aboutItem', compact('item', 'brand', 'cars'));
+		
+	}
+	
+	public function selectItem($item_alias_code, Request $request)		
+	{
+		$item = Item::getItemsByAliasCode($item_alias_code);
+		$brand = Item::find($item->id)->brand()->first();
+		$cars = Item::find($item->id)->cars()->get();
+		return view('shop.aboutItem', compact('item', 'brand', 'cars'));
 		
 	}
 
@@ -111,25 +72,16 @@ class ItemsController extends Controller
 
     public function getCheckout()
     {
-
+        $cart = Cart::content();
         if(Cart::count() == null){
             return view('shop.shoppingCart');
         }
-        $aboutUser = \Auth::user()->aboutUser()->get();
-
-        $userAddress = !empty($aboutUser[0]->city)? $aboutUser[0]->city . ', ' : '';
-        $userAddress .= !empty($aboutUser[0]->street)? $aboutUser[0]->street . ' ' : '';
-        $userAddress .= !empty($aboutUser[0]->house_number)? $aboutUser[0]->house_number . ', кв.' : '';
-        $userAddress .= !empty($aboutUser[0]->flat_number)? $aboutUser[0]->flat_number : '';
-
-        return view('shop.checkout', compact('cart', 'userAddress'));
+        return view('shop.checkout', compact('cart'));
     }
 	
-	public function postCheckout(CheckoutRequest $request)
-    {
-        $user = \Auth::user();
-        $dataToMail = array();
-		$cart = Cart::content();
+	public function postCheckout(Request $request)
+    {	
+		$cart = Cart::content();		
 		if(!empty(Cart::count())){		
 			$data = $request->all();
 			$order = new Order();
@@ -145,7 +97,7 @@ class ItemsController extends Controller
 				$orderDetail->item_id = $cartItem->id;
 				$orderDetail->price = $cartItem->price;
 				$orderDetail->qty = $cartItem->qty;
-				$orderDetail->save();
+				$orderDetail->save();	
 			}
 			if(empty($data['checkOldAddress'])){
 				$newAddress = new DeliveryAddress();
@@ -156,9 +108,7 @@ class ItemsController extends Controller
 				$newAddress->flat_number = $data['flat_number'];
 				$newAddress->save();							
 			}
-            Mail::to($user->email)->send(new OrderShipped($user, $order));
 			$this->cleanCart();
-
 			return view('shop.orderPlaced', compact('order'));
 		}
 		return redirect('/');
@@ -191,4 +141,6 @@ class ItemsController extends Controller
 	{
 		Cart::destroy();
 	}
+	
+	
 }

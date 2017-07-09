@@ -1,7 +1,9 @@
 
 
 $('.brands').append("<option></option>");	
-// console.log(listOfBrands);
+$('.years').prop('disabled', true);
+$('.models').prop('disabled', true);
+$('.engines').prop('disabled', true);
 for(var i = 0; i < listOfCarBrands.length; i++){
 	if($(window).width() >= ''){
 		$('.brands').append("<option value='"+ listOfCarBrands[i] +"'>" + listOfCarBrands[i] + "</option>");
@@ -15,10 +17,10 @@ function getYears(data){
 		$('.engines').empty();
 		$.ajax({
 			type: "GET",
-			url: /*"/Acars.xxx/shop/public*/"/get_years",
+			url: "get_years",
 			data:  {brand : brand},
 			success: function (years) {
-						// console.log(years);
+						$('.years').prop('disabled', false);
 						$('.years').empty();
 						$('.years').append("<option></option>");
 						for(var i = 0; i < years.length; i++){
@@ -38,10 +40,10 @@ function getModels(data){
 		$('.engines').empty();
 		$.ajax({
 			type: "GET",
-			url: /*"/Acars.xxx/shop/public*/"/get_models",
+			url: "get_models",
 			data: {year: year},
 			success: function (models) {
-						// console.log(models);
+						$('.models').prop('disabled', false);
 						$('.models').empty();
 						$('.models').append("<option></option>");
 						for(var i = 0; i < models.length; i++){
@@ -60,10 +62,10 @@ function getEngines(data){
 	if(model){
 		$.ajax({
 			type:"GET",
-			url: /*"/Acars.xxx/shop/public*/"/get_engines",
+			url: "get_engines",
 			data:{model : model},
 			success: function(engines){
-						// console.log(engines);
+						$('.engines').prop('disabled', false);
 						$('.engines').empty();
 						$('.engines').append("<option></option>");
 						for(var i = 0; i < engines[0].length; i++){
@@ -81,30 +83,56 @@ function getEngines(data){
 function chosenCar(data){
 	var alias = data.options[data.selectedIndex].value;
 	if(alias){
-		document.location.href = "/cars/"+alias;
+		document.location.href = "cars/"+alias;
 	}
 
 }
 /*************************Sort Items**************************************/
+var arrayOfItemsBackup = $('.itemBasicOnList');
 function typeSort(data){
-	var typeSort = data.options[data.selectedIndex].value;
-	if(typeSort){
-	$.ajax({
-		type:"GET",
-		url: /*"/Acars.xxx/shop/public*/"/typeSort",
-		data:{typeSort: typeSort},
-		success: function(data){
-			console.log(data);
-		},
-		error: function(data){
-			console.log(data);
-		},
+	var typeSort = parseInt(data.options[data.selectedIndex].value);
+	var arrayOfItems = $('.itemBasicOnList');
+	var count = 0;
+	arrayOfItems.sort(function(a,b){
+		if(typeSort == 1){
+			a = parseInt($(a).find('.priceOnList > strong').prop('innerHTML'));
+			b = parseInt($(b).find('.priceOnList > strong').prop('innerHTML'));
+			count += 2;
+			if(a > b){
+				return 1;
+			}else if(a < b){
+				return -1;
+			}else{
+				return 0;
+			}
+		}else if(typeSort == 2){
+			a = $(a).find('.itemHeadOnList > .title').prop('innerHTML');
+			b = $(b).find('.itemHeadOnList > .title').prop('innerHTML');
+			count += 2;
+			if(a > b){
+				return 1;
+			}else if(a < b){
+				return -1;
+			}else{
+				return 0;
+			}
+		}	
 	});
+	$('.itemBasicOnList').parent('.row').append(arrayOfItems)
+	if(typeSort == 0){
+		$('.itemBasicOnList').parent('.row').append(arrayOfItemsBackup);
 	}
 }
 
 function brandSort(data){
+	var brandId = parseInt(data.options[data.selectedIndex].value);
 
+	if(brandId == 0){
+		$('.itemBasicOnList').show();
+	}else{
+		$('.itemBasicOnList:not(#' + brandId + ')').hide();
+		$('#' + brandId).show();
+	}
 }
 
 /***************************************************************************/
@@ -122,14 +150,13 @@ function addToCart(item_id){
 		
 			$.ajax({
 				type:"GET",
-				url: /*"/Acars.xxx/shop/public/*/"/add_to_cart/"+item_id,
+				url: "add_to_cart/"+item_id,
 				data:{item_id : item_id},
 				success: function(item){
 					console.log(item);
 					var totalQty = parseInt(document.getElementById('totalQty').innerHTML);
 					totalQty++;
 					document.getElementById('totalQty').innerHTML = totalQty;
-	   
 				},
 				error: function(data){
 					console.log(data);

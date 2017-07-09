@@ -24,7 +24,7 @@ class CarRequest extends FormRequest
     public function rules()
     {
         return [
-			'alias' => 'required',
+			// 'alias' => 'required',
 			'brand' => 'required',
 			'model' => 'required',
 			'engine' => 'required',
@@ -41,7 +41,7 @@ class CarRequest extends FormRequest
     public function messages()
     {
         return [
-			'alias.required' => 'Поле псевдоним пустое',
+			// 'alias.required' => 'Поле псевдоним пустое',
 			'brand.required' => 'Поле марка пустое',
 			'model.required' => 'Поле модель пустое',
 			'engine.required' => 'Поле объем двигателя пустое',
